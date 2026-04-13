@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PoolIt — Split Subscriptions With Your Neighbours</title>
+    <meta
+      name="description"
+      content="Split Netflix, Spotify and more with verified neighbours on your street. Join the waitlist."
+    />
+    <meta property="og:title" content="PoolIt — Split Subscriptions With Your Neighbours" />
+    <meta
+      property="og:description"
+      content="Split Netflix, Spotify and more with verified neighbours on your street. Join the waitlist."
+    />
+    <meta property="og:image" content="https://poolit.site/og-image.png" />
+    <meta property="og:url" content="https://poolit.site" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="poolit-launch-date" content="2026-08-17T00:00:00Z" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="hero section">
+      <div class="container">
+        <div class="top-bar">
+          <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+            <span id="themeToggleIcon" aria-hidden="true">🌙</span>
+            <span id="themeToggleText">Dark</span>
+          </button>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-content">
+            <p class="logo animate-seq a1">POOLIT</p>
+            <h1 class="animate-seq a2">Connecting Neighbours. Splitting Costs. Building Community.</h1>
+            <p class="hero-copy animate-seq a3">
+              Own the same premium subscriptions for less. Built for real neighbourhoods, real trust, and real savings.
+            </p>
+            <button id="heroCta" class="btn hero-btn animate-seq a4">Join the Waitlist</button>
+          </div>
+
+          <div class="hero-side animate-seq a4">
+            <p class="countdown-label">Launch Countdown</p>
+            <div class="countdown" aria-label="Launch countdown">
+              <div class="count-card"><span id="days">00</span><small>Days</small></div>
+              <div class="count-card"><span id="hours">00</span><small>Hours</small></div>
+              <div class="count-card"><span id="minutes">00</span><small>Minutes</small></div>
+              <div class="count-card"><span id="seconds">00</span><small>Seconds</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section reveal section-surface">
+        <div class="container">
+          <h2>See Your Savings</h2>
+          <div class="calc-card">
+            <label for="serviceSelect">Choose a subscription</label>
+            <select id="serviceSelect" class="calc-native-select">
+              <option value="">Select a service</option>
+              <option value="spotify">Spotify Family</option>
+              <option value="netflix">Netflix Premium</option>
+              <option value="youtube">YouTube Premium</option>
+              <option value="amazon">Amazon Prime</option>
+            </select>
+
+            <div class="calc-picker" role="group" aria-label="Select a subscription service">
+              <button
+                type="button"
+                class="calc-option spotify"
+                data-service="spotify"
+                data-tooltip="Spotify Family"
+                aria-label="Spotify Family"
+                title="Spotify Family"
+              >
+                <i class="fab fa-spotify" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="calc-option netflix"
+                data-service="netflix"
+                data-tooltip="Netflix Premium"
+                aria-label="Netflix Premium"
+                title="Netflix Premium"
+              >
+                <svg class="netflix-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><text x="50" y="65" font-size="70" font-weight="bold" text-anchor="middle" fill="currentColor">N</text></svg>
+              </button>
+              <button
+                type="button"
+                class="calc-option youtube"
+                data-service="youtube"
+                data-tooltip="YouTube Premium"
+                aria-label="YouTube Premium"
+                title="YouTube Premium"
+              >
+                <i class="fab fa-youtube" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="calc-option amazon"
+                data-service="amazon"
+                data-tooltip="Amazon Prime"
+                aria-label="Amazon Prime"
+                title="Amazon Prime"
+              >
+                <i class="fab fa-amazon" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <div class="calc-insights" aria-live="polite">
+              <p class="calc-insight-title">Monthly comparison</p>
+              <div class="calc-bars">
+                <div class="calc-bar-row">
+                  <span>Solo plan</span>
+                  <strong id="calcFullCost">—</strong>
+                </div>
+                <div class="calc-bar calc-bar-full"><i id="calcFullBar"></i></div>
+
+                <div class="calc-bar-row">
+                  <span>With PoolIt</span>
+                  <strong id="calcSplitCost">—</strong>
+                </div>
+                <div class="calc-bar calc-bar-split"><i id="calcSplitBar"></i></div>
+              </div>
+              <p class="calc-save-chip" id="calcSaveChip">Choose a service to reveal your savings.</p>
+            </div>
+
+            <div id="calcResult" class="calc-result" aria-live="polite">
+              Pick a service to see per-member cost and yearly savings.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section how-it-works reveal section-white">
+        <div class="container">
+          <h2>How It Works</h2>
+          <div class="steps">
+            <article class="step-card step-1">
+              <span class="step-watermark">01</span>
+              <div class="step-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
+              <h3>Verify Location</h3>
+              <p>Confirm your neighbourhood so every pool starts with trusted people nearby.</p>
+            </article>
+            <article class="step-card step-2">
+              <span class="step-watermark">02</span>
+              <div class="step-icon" aria-hidden="true"><i class="fa-solid fa-user-group"></i></div>
+              <h3>Join Your Neighbours</h3>
+              <p>Get matched into tiny groups already around your area and ready to share.</p>
+            </article>
+            <article class="step-card step-3">
+              <span class="step-watermark">03</span>
+              <div class="step-icon" aria-hidden="true"><i class="fa-solid fa-wallet"></i></div>
+              <h3>Save Together</h3>
+              <p>Split one premium plan fairly and keep saving month after month.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal section-surface services-section">
+        <div class="container">
+          <div class="services-head">
+            <h2>Supported Services</h2>
+            <p>Premium plans your street already knows and loves — now shared fairly.</p>
+          </div>
+
+          <div class="services-grid" aria-label="Supported services">
+            <article class="service-card spotify-glow">
+              <span class="service-pill spotify"><i class="fab fa-spotify"></i></span>
+              <h3>Family Vibes</h3>
+              <p>From ₦2,500/mo to about ₦417 each in a 6-person pool.</p>
+            </article>
+
+            <article class="service-card netflix-glow">
+              <span class="service-pill netflix"><svg class="netflix-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><text x="50" y="65" font-size="70" font-weight="bold" text-anchor="middle" fill="currentColor">N</text></svg></span>
+              <h3>Weekend Binge</h3>
+              <p>Share Premium and reduce cost to around ₦1,600 per person.</p>
+            </article>
+
+            <article class="service-card youtube-glow">
+              <span class="service-pill youtube"><i class="fab fa-youtube"></i></span>
+              <h3>No More Ads</h3>
+              <p>Cut monthly cost down to roughly ₦420 in a 5-neighbour group.</p>
+            </article>
+
+            <article class="service-card amazon-glow">
+              <span class="service-pill amazon"><i class="fab fa-amazon"></i></span>
+              <h3>Prime Essentials</h3>
+              <p>Enjoy Prime benefits while splitting to about ₦1,167 each.</p>
+            </article>
+          </div>
+
+          <div class="badges ticker" aria-hidden="true">
+            <div class="ticker-track">
+              <span class="spotify"><i class="fab fa-spotify"></i></span>
+              <span class="netflix"><svg class="netflix-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><text x="50" y="65" font-size="70" font-weight="bold" text-anchor="middle" fill="currentColor">N</text></svg></span>
+              <span class="youtube"><i class="fab fa-youtube"></i></span>
+              <span class="amazon"><i class="fab fa-amazon"></i></span>
+              <span class="spotify"><i class="fab fa-spotify"></i></span>
+              <span class="netflix"><svg class="netflix-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><text x="50" y="65" font-size="70" font-weight="bold" text-anchor="middle" fill="currentColor">N</text></svg></span>
+              <span class="youtube"><i class="fab fa-youtube"></i></span>
+              <span class="amazon"><i class="fab fa-amazon"></i></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal section-white" id="waitlist">
+        <div class="container">
+          <div class="waitlist-emblem">
+            <div class="emblem-inner">
+              <p class="emblem-label">Neighbours Joined</p>
+              <p class="emblem-count" id="emblemCount">0</p>
+              <p class="emblem-sublabel">and counting...</p>
+            </div>
+          </div>
+          <h2>Get Early Access</h2>
+
+          <form id="waitlistForm" novalidate>
+            <label for="name">Name *</label>
+            <input id="name" name="name" type="text" required />
+
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="phone">Phone (optional)</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="e.g. +2348012345678"
+              pattern="^(?:\+?234|0)[789][01]\d{8}$"
+            />
+
+            <button id="submitBtn" class="btn" type="submit">Join Waitlist</button>
+            <p id="formError" class="error" role="alert" aria-live="assertive"></p>
+          </form>
+
+          <section id="successCard" class="success hidden" aria-live="polite">
+            <div class="success-inner">
+              <div class="success-icon-wrapper">
+                <i class="fas fa-check"></i>
+              </div>
+              <h3 class="success-title">Welcome to PoolIt!</h3>
+              <p class="success-subtitle">You're now on the waitlist</p>
+              
+              <div class="referral-section">
+                <p class="referral-label">Share & Save More</p>
+                <p class="referral-desc">Invite friends to move up the queue. Every referral gets you closer to access.</p>
+                <div class="copy-row">
+                  <a id="refLink" href="#" target="_blank" rel="noopener" class="referral-link"></a>
+                  <button type="button" id="copyRefBtn" class="copy-btn" aria-label="Copy referral link">
+                    <i class="fas fa-link"></i>
+                  </button>
+                </div>
+                <p id="copyStatus" class="copy-status" aria-live="polite"></p>
+              </div>
+
+              <div class="success-benefits">
+                <div class="benefit-item">
+                  <i class="fas fa-rocket"></i>
+                  <span>Early Access</span>
+                </div>
+                <div class="benefit-item">
+                  <i class="fas fa-users"></i>
+                  <span>Grow Your Network</span>
+                </div>
+                <div class="benefit-item">
+                  <i class="fas fa-piggy-bank"></i>
+                  <span>Save Together</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand-block">
+          <p class="footer-brand">POOLIT</p>
+          <p class="footer-tagline">Split subscriptions with trusted neighbours across Nigeria.</p>
+        </div>
+
+        <div class="footer-links-wrap">
+          <div class="footer-links-group">
+            <p class="footer-title">Company</p>
+            <div class="footer-links">
+              <a href="#waitlist">Join Waitlist</a>
+              <a href="#">Privacy Policy</a>
+            </div>
+          </div>
+
+          <div class="footer-links-group">
+            <p class="footer-title">Contact</p>
+            <div class="footer-links">
+              <a href="mailto:hello@poolit.site">hello@poolit.site</a>
+              <a href="tel:+2340000000000">+234 (0) 000 000 0000</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p class="footer-note">PoolIt Technologies Limited · Nigeria 2026</p>
+        <p class="footer-note">Built for community, savings, and trust.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

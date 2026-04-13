@@ -1,0 +1,21 @@
+{
+  "name": "poolit-landingpage",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file=.env dev-server.js",
+    "dev:vercel": "vercel dev --yes",
+    "db:setup": "node --env-file=.env scripts/setup-db.js",
+    "build": "node -e \"console.log('No build step required for static files.')\"",
+    "preview": "npm run dev"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.51.0",
+    "pg": "^8.20.0",
+    "resend": "^4.6.0"
+  },
+  "devDependencies": {
+    "vercel": "^44.7.3"
+  }
+}
