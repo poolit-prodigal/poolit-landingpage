@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# LLM context file
+# See: https://poolit.site/llms.txt

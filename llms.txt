@@ -1,0 +1,22 @@
+# PoolIt
+
+> PoolIt is a Nigerian neighbourhood subscription-sharing platform. Members split digital subscription costs — Spotify, Netflix, YouTube Premium, and Amazon Prime — with verified physical neighbours within a 100-metre radius.
+
+## Product
+
+- Groups are formed between real neighbours verified by GPS
+- Payments are handled via Paystack escrow
+- Current stage: pre-launch waitlist at poolit.site
+- Target market: Nigeria, urban users aged 18–35
+
+## Company
+
+- Company: PoolIt Technologies Limited
+- Founded: 2026
+- Location: Nigeria
+- Contact: hello@poolit.site
+
+## Links
+
+- Waitlist: https://poolit.site
+- Privacy Policy: https://poolit.site/privacy
