@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | PoolIt</title>
+    <meta name="description" content="PoolIt Privacy Policy and NDPR notice." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #0d1b2a;
+        --blue: #1a73e8;
+        --muted: #5f6b7a;
+        --border: #e6e9ef;
+        --surface: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--surface);
+        color: var(--navy);
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 60px 24px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+      }
+
+      .wordmark {
+        color: var(--blue);
+        text-decoration: none;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        font-size: 1.1rem;
+      }
+
+      .updated {
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      h1 {
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        line-height: 1.15;
+        margin: 0 0 16px;
+      }
+
+      p,
+      li {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--navy);
+      }
+
+      .lede {
+        font-size: 1.05rem;
+        color: var(--muted);
+        margin: 0 0 28px;
+      }
+
+      section {
+        margin-top: 30px;
+        padding-top: 6px;
+      }
+
+      h2 {
+        font-size: 20px;
+        line-height: 1.3;
+        margin: 0 0 12px;
+        font-weight: 800;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 22px;
+      }
+
+      li {
+        margin: 8px 0;
+      }
+
+      .contact-block {
+        margin-top: 12px;
+      }
+
+      .footer {
+        margin-top: 44px;
+        padding-top: 18px;
+        border-top: 1px solid var(--border);
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          padding: 40px 20px;
+        }
+
+        .topbar {
+          align-items: flex-start;
+          gap: 12px;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="topbar">
+        <a class="wordmark" href="/" aria-label="Return to PoolIt home">POOLIT</a>
+        <div class="updated">Last updated: April 2026</div>
+      </div>
+
+      <h1>Privacy Policy</h1>
+      <p class="lede">
+        PoolIt Technologies Limited is committed to protecting your personal data and complying with the Nigeria Data
+        Protection Regulation (NDPR).
+      </p>
+
+      <section>
+        <h2>1. WHO WE ARE</h2>
+        <p>
+          PoolIt Technologies Limited ("PoolIt", "we", "us") operates the platform at poolit.site. We are
+          registered in Nigeria. Contact: hello@poolit.site.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. WHAT DATA WE COLLECT</h2>
+        <ul>
+          <li>Name and email address (required for waitlist)</li>
+          <li>Phone number (optional, waitlist only)</li>
+          <li>Referral source (tracked via URL parameter)</li>
+          <li>Location data (GPS coordinates — main app only, not waitlist)</li>
+          <li>Device attestation tokens (main app only — Android Play Integrity, iOS DeviceCheck)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. WHY WE COLLECT IT</h2>
+        <ul>
+          <li>Waitlist: to notify you at launch and manage early access</li>
+          <li>Location: to verify you are within a neighbourhood group radius (app only)</li>
+          <li>Phone: to send OTP verification (app only)</li>
+          <li>Referral: to credit referrals and manage waitlist priority</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. HOW WE USE YOUR DATA</h2>
+        <ul>
+          <li>We do not sell your data to any third party</li>
+          <li>We do not share your data with advertisers</li>
+          <li>We use Supabase (PostgreSQL) to store waitlist data securely</li>
+          <li>We use Resend to send transactional emails</li>
+          <li>
+            Location coordinates are processed in-memory only and never stored as raw coordinates — only a
+            neighbourhood cluster boolean is persisted
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. DATA RETENTION</h2>
+        <ul>
+          <li>Waitlist data: retained until you request deletion or 12 months after launch, whichever comes first</li>
+          <li>App messages: deleted after 90 days</li>
+          <li>Account data: deleted within 30 days of a deletion request</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. YOUR RIGHTS UNDER NDPR</h2>
+        <p>Under the Nigeria Data Protection Regulation (NDPR) 2019, you have the right to:</p>
+        <ul>
+          <li>Access the personal data we hold about you</li>
+          <li>Request correction of inaccurate data</li>
+          <li>Request deletion of your data</li>
+          <li>Withdraw consent at any time</li>
+          <li>Lodge a complaint with NITDA (National Information Technology Development Agency)</li>
+        </ul>
+        <p class="contact-block">To exercise any of these rights, email us at: hello@poolit.site</p>
+        <p>We will respond within 30 days.</p>
+      </section>
+
+      <section>
+        <h2>7. COOKIES</h2>
+        <p>
+          The waitlist page uses no tracking cookies. Google Analytics may be used for anonymous traffic analysis
+          only.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. THIRD-PARTY SERVICES</h2>
+        <p>We use the following third-party services:</p>
+        <ul>
+          <li>Supabase — database hosting (supabase.com)</li>
+          <li>Resend — transactional email (resend.com)</li>
+          <li>Vercel — website hosting (vercel.com)</li>
+          <li>Paystack — payments (paystack.com) — app only</li>
+          <li>Termii — SMS/OTP (termii.com) — app only</li>
+        </ul>
+        <p>Each service operates under its own privacy policy.</p>
+      </section>
+
+      <section>
+        <h2>9. CHILDREN</h2>
+        <p>PoolIt is not directed at anyone under the age of 18. We do not knowingly collect data from minors.</p>
+      </section>
+
+      <section>
+        <h2>10. CHANGES TO THIS POLICY</h2>
+        <p>
+          We may update this policy. The "Last updated" date at the top will reflect any changes. Continued use of
+          the platform constitutes acceptance of the updated policy.
+        </p>
+      </section>
+
+      <section>
+        <h2>11. CONTACT</h2>
+        <p>PoolIt Technologies Limited</p>
+        <p>Email: hello@poolit.site</p>
+        <p>Website: poolit.site</p>
+      </section>
+
+      <div class="footer">PoolIt Technologies Limited · Nigeria 2026</div>
+    </main>
+  </body>
+</html>
