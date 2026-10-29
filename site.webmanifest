@@ -1,0 +1,19 @@
+{
+  "name": "PoolIt — Split the bill. Keep the stream.",
+  "short_name": "PoolIt",
+  "description": "Share subscription costs with your neighbours.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0D6B4E",
+  "lang": "en-NG",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

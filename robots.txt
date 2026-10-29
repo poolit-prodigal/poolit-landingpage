@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
 
+# Backend endpoints are not public content pages.
+Disallow: /api/
+
 # LLM context file
 # See: https://poolit.site/llms.txt
+
+Sitemap: https://poolit.site/sitemap.xml
