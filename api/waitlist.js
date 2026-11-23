@@ -87,7 +87,7 @@ export default async function handler(req, res) {
     }
 
     if (existing.data?.ref_code) {
-      return res.status(200).json({ success: true, ref_code: existing.data.ref_code });
+      return res.status(200).json({ success: true, already_joined: true, ref_code: existing.data.ref_code });
     }
 
     const refCode = generateRefCode();
@@ -108,7 +108,7 @@ export default async function handler(req, res) {
           .eq('email', safeEmail)
           .maybeSingle();
         if (dupe.data?.ref_code) {
-          return res.status(200).json({ success: true, ref_code: dupe.data.ref_code });
+          return res.status(200).json({ success: true, already_joined: true, ref_code: dupe.data.ref_code });
         }
       }
       console.error('Insert error:', insertError.message);
