@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>PoolIt — Split the bill. Keep the stream.</title>
-<meta name="description" content="Share Netflix, Spotify, Prime Video and more with your neighbours. Your share is collected automatically every month.">
+<meta name="description" content="Fill the spare seats on Netflix, Spotify, Prime Video and more with your neighbours. Your share is collected automatically every month.">
 <meta name="application-name" content="PoolIt">
-<meta name="theme-color" content="#0D6B4E">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0D6B4E" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0D0E" media="(prefers-color-scheme: dark)">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://poolit.site/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -15,13 +17,13 @@
 <meta property="og:site_name" content="PoolIt">
 <meta property="og:locale" content="en_NG">
 <meta property="og:title" content="PoolIt — Split the bill. Keep the stream.">
-<meta property="og:description" content="Share Netflix, Spotify, Prime Video and more with your neighbours. Your share is collected automatically every month.">
+<meta property="og:description" content="Fill the spare seats on Netflix, Spotify, Prime Video and more with your neighbours. Your share is collected automatically every month.">
 <meta property="og:url" content="https://poolit.site/">
 <meta property="og:image" content="https://poolit.site/og-image.png">
 <meta property="og:image:alt" content="PoolIt — split subscription costs with your neighbours.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PoolIt — Split the bill. Keep the stream.">
-<meta name="twitter:description" content="Share Netflix, Spotify, Prime Video and more with your neighbours. Your share is collected automatically every month.">
+<meta name="twitter:description" content="Fill the spare seats on Netflix, Spotify, Prime Video and more with your neighbours. Your share is collected automatically every month.">
 <meta name="twitter:image" content="https://poolit.site/og-image.png">
 <meta name="twitter:image:alt" content="PoolIt — split subscription costs with your neighbours.">
 <script type="application/ld+json">
@@ -58,7 +60,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#fff;--ink:#0E1A15;--muted:#5B6B63;--line:#E6ECE8;--mint:#E3F2EA;--green:#0D6B4E;--deep:#00533B;--amber:#F0A500;--gray:#DDE3E0;
+  --bg:#fff;--ink:#0E1A15;--muted:#5B6B63;--line:#E6ECE8;--mint:#E3F2EA;--green:#0D6B4E;--deep:#00533B;--amber:#F0A500;--gray:#DDE3E0;--accent:#0D6B4E;--surface:#fff;--surface2:#F7FAF8;--field:#F1F5F2;--hover:#F2F5F3;--grid:#EEF2EF;--tag-bg:#FFF3D6;--tag-ink:#8A5A00;--glass:rgba(255,255,255,.66);--glass-line:rgba(14,26,21,.07);--form-bg:rgba(255,255,255,.7);--err:#B3261E;--err-bg:#FFF5F4;--warn:#8A5A00;--store-bg:#0E1A15;--bezel:#0E1A15;--logo:#0D6B4E;--logo-edge:rgba(255,255,255,.5);color-scheme:light dark;
   --ease-out:cubic-bezier(.23,1,.32,1);--ease-io:cubic-bezier(.77,0,.175,1);
   --head:'Bricolage Grotesque','DM Sans',system-ui,sans-serif;--body:'DM Sans',system-ui,-apple-system,sans-serif;
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
@@ -70,7 +72,7 @@ h1,h2,h3{font-family:var(--head);letter-spacing:-.02em;line-height:1.08;margin:0
 p{margin:0}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 section{padding:96px 0}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
 .eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--green)}
 h2{font-size:clamp(30px,4.4vw,46px);margin-top:14px}
 .lead{color:var(--muted);max-width:560px;margin-top:16px}
@@ -78,14 +80,19 @@ h2{font-size:clamp(30px,4.4vw,46px);margin-top:14px}
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 24px;border-radius:999px;border:0;background:var(--green);color:#fff;font:600 16px var(--body);text-decoration:none;cursor:pointer;transition:transform 160ms var(--ease-out),background-color 160ms ease}
 .btn:active{transform:scale(.97)}
-.btn.ghost{background:#fff;color:var(--green);box-shadow:inset 0 0 0 1.5px var(--green)}
+.btn.ghost{background:var(--surface);color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--accent)}
 @media (hover:hover) and (pointer:fine){.btn:hover{background:var(--deep)}.btn.ghost:hover{background:var(--mint)}}
-:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:8px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
 
 /* nav */
-nav{position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px);background:rgba(255,255,255,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px);isolation:isolate}
+/* the glass lives on its own layer so it can fade in without touching the content */
+nav::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--glass);backdrop-filter:blur(18px) saturate(1.7);-webkit-backdrop-filter:blur(18px) saturate(1.7);border-bottom:1px solid var(--glass-line);opacity:0;transition:opacity 260ms var(--ease-out)}
+nav.scrolled::before{opacity:1}
+.nav-progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,var(--green),#46A37C);transform:scaleX(0);transform-origin:left;opacity:0;transition:opacity 260ms var(--ease-out);pointer-events:none}
+nav.scrolled .nav-progress{opacity:.9}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{display:flex;align-items:center;gap:10px;font:700 22px var(--head);letter-spacing:-.02em;color:var(--green);text-decoration:none}
+.brand{display:flex;align-items:center;gap:10px;font:700 22px var(--head);letter-spacing:-.02em;color:var(--accent);text-decoration:none}
 .brand img{width:34px;height:34px;border-radius:9px}
 nav .btn{height:40px;padding:0 18px;font-size:15px}
 
@@ -93,11 +100,25 @@ nav .btn{height:40px;padding:0 18px;font-size:15px}
 .hero{padding:56px 0 72px}
 .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
 .hero h1{font-size:clamp(40px,6vw,68px);margin:18px 0 18px}
-.hero h1 em{font-style:normal;color:var(--green)}
+.hero h1 .l1,.hero h1 .l2,.hero h1 .l3{display:block}
+.hero h1 .l2,.hero h1 .l3{white-space:nowrap;color:var(--accent)}
+/* "Split" breaks apart as you start to scroll: two clipped copies of the word, moved by script.
+   The real text stays in place (transparent) for readers, search and selection. */
+.split{position:relative;display:inline-block;color:transparent}
+.split::before,.split::after{content:attr(data-text);position:absolute;left:0;top:0;color:var(--ink);pointer-events:none;transform-origin:50% 56%;will-change:transform}
+.split::before{clip-path:polygon(0 0,100% 0,100% 49%,87% 55%,72% 46%,58% 57%,44% 48%,30% 58%,15% 49%,0 56%);transform:translate(calc(var(--sx,0)*-1px),calc(var(--sy,0)*-1px)) rotate(calc(var(--sr,0)*-1deg))}
+.split::after{clip-path:polygon(0 55%,15% 48%,30% 57%,44% 47%,58% 56%,72% 45%,87% 54%,100% 48%,100% 100%,0 100%);transform:translate(calc(var(--sx,0)*1px),calc(var(--sy,0)*1px)) rotate(calc(var(--sr,0)*1deg))}
+/* "stream" on a TV wearing headphones; everything is sized in em so it scales with the headline */
+.tv{position:relative;display:inline-block;margin:.12em .22em .24em 0;padding:.07em .34em .13em;color:#fff;line-height:1.04;background:linear-gradient(118deg,rgba(255,255,255,.2) 0 13%,transparent 13% 100%),var(--deep);border:.085em solid var(--bezel);border-radius:.3em/.34em;box-shadow:inset 0 0 0 .04em rgba(255,255,255,.1),inset 0 .06em .14em rgba(0,0,0,.28)}
+/* two little feet */
+.tv::before,.tv::after{content:"";position:absolute;bottom:-.2em;width:.2em;height:.12em;background:var(--bezel);border-radius:0 0 .06em .06em}
+.tv::before{left:22%;transform:skewX(-16deg)}.tv::after{right:22%;transform:skewX(16deg)}
+.tv-word{display:inline-block;animation:tv-on 540ms var(--ease-out) 450ms both}
+@keyframes tv-on{from{clip-path:inset(47% 0 47% 0);opacity:.4}to{clip-path:inset(0);opacity:1}}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 8px}
 .feats{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:18px;max-width:480px}
 .feats li{display:flex;gap:14px;align-items:flex-start}
-.ico{flex:none;width:42px;height:42px;border-radius:12px;background:var(--mint);display:grid;place-items:center;color:var(--green)}
+.ico{flex:none;width:42px;height:42px;border-radius:12px;background:var(--mint);display:grid;place-items:center;color:var(--accent)}
 .ico svg{width:22px;height:22px}
 .feats h3{font:600 17px var(--body);letter-spacing:0}
 .feats p{color:var(--muted);font-size:15px;margin-top:2px}
@@ -105,15 +126,20 @@ nav .btn{height:40px;padding:0 18px;font-size:15px}
 /* iPhone frame (Magic UI), 433x882; screen at 21.25,19.25 389.5x843.5 r55.75 */
 .phone{flex:none;position:relative;width:var(--pw);aspect-ratio:433/882;border-radius:16.86%/8.28%;box-shadow:0 30px 60px -20px rgba(13,107,78,.35),0 8px 20px rgba(14,26,21,.12)}
 .phone>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.phone img{position:absolute;left:4.908%;top:2.183%;width:89.954%;height:95.635%;border-radius:14.313%/6.609%;object-fit:cover;object-position:top;background:#fff}
+.phone img{position:absolute;left:4.908%;top:2.183%;width:89.954%;height:95.635%;border-radius:14.313%/6.609%;object-fit:cover;object-position:top;background:var(--surface)}
 .phone.l{transform:rotate(-6deg) translateY(28px) scale(.88);margin-right:calc(var(--pw)*-.22);z-index:1}
 .phone.c{z-index:3;position:relative}
 .phone.r{transform:rotate(6deg) translateY(28px) scale(.88);margin-left:calc(var(--pw)*-.22);z-index:1}
-.proof{display:flex;align-items:center;gap:12px;margin-top:20px;color:var(--muted);font-size:15px}
-.proof strong{color:var(--ink)}
+.proof{display:flex;align-items:center;gap:12px;margin-top:20px;min-height:40px;color:var(--muted);font-size:15px;opacity:0;transition:opacity 300ms var(--ease-out)}
+.proof.ready{opacity:1}
+.proof.none{display:none}
+.avs:empty{display:none}
+.cloud-static{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;padding:24px}
+.cloud-static img{width:100%;max-width:46px;margin:auto;border-radius:50%}
+.proof strong{color:var(--ink);font-weight:600}
 /* Avatar circles (Magic UI AvatarCircles): 40px, white ring, -16px overlap, count bubble last */
 .avs{display:flex}
-.avs span{flex:none;width:40px;height:40px;border-radius:50%;background:var(--av,#fff);color:var(--deep);border:2px solid #fff;margin-left:-16px;display:grid;place-items:center;font:600 15px var(--head);letter-spacing:0}
+.avs span{flex:none;width:40px;height:40px;border-radius:50%;background:var(--av,var(--surface));color:#00533B;border:2px solid var(--bg);margin-left:-16px;display:grid;place-items:center;font:600 15px var(--head);letter-spacing:0}
 .avs span:first-child{margin-left:0}
 .avs .more{background:var(--deep);color:#fff;font:500 12px var(--body)}
 
@@ -127,29 +153,29 @@ nav .btn{height:40px;padding:0 18px;font-size:15px}
 [data-reveal].on{opacity:1;transform:none}
 
 /* chart */
-.savings{background:#F7FAF8;border-block:1px solid var(--line)}
-.chart-card{margin-top:44px;background:#fff;border:1px solid var(--line);border-radius:28px;padding:32px 32px 28px}
+.savings{background:var(--surface2);border-block:1px solid var(--line)}
+.chart-card{margin-top:44px;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:32px 32px 28px}
 /* EvilCharts-style hatched bars: rose = paying alone, emerald = PoolIt share */
 #chart{--alone:#be123c;--pool:#047857}
 .legend{display:flex;gap:8px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-bottom:28px}
 .legend button{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;margin:-6px 0;border:0;border-radius:8px;background:none;color:inherit;font:inherit;cursor:pointer;transition:opacity 200ms ease,background-color 160ms ease}
-.legend button:hover{background:#F2F5F3}
+@media (hover:hover) and (pointer:fine){.legend button:hover{background:var(--hover)}}
 .legend button[aria-pressed="false"]{opacity:.45}
 .legend button[aria-pressed="false"] span{text-decoration:line-through}
-.legend i{--c:var(--alone);width:12px;height:12px;border-radius:3px;border:1.5px solid var(--c);background:repeating-linear-gradient(-45deg,var(--c) 0 1.5px,transparent 1.5px 4px),color-mix(in srgb,var(--c) 12%,#fff)}
+.legend i{--c:var(--alone);width:12px;height:12px;border-radius:3px;border:1.5px solid var(--c);background:repeating-linear-gradient(-45deg,var(--c) 0 1.5px,transparent 1.5px 4px),color-mix(in srgb,var(--c) 12%,var(--surface))}
 .legend button+button i{--c:var(--pool)}
 .groups{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .grp{display:flex;flex-direction:column;align-items:center}
-.bars{height:260px;width:100%;max-width:220px;display:flex;align-items:flex-end;justify-content:center;gap:14px;border-bottom:1.5px solid var(--line);background:repeating-linear-gradient(to top,transparent 0 calc(25% - 1px),#EEF2EF calc(25% - 1px) 25%)}
-.bar{--c:var(--alone);flex:1;height:calc(var(--h)*1%);position:relative;border:1.5px solid var(--c);border-bottom:0;border-radius:8px 8px 0 0;background:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--c) 70%,transparent) 0 1.5px,transparent 1.5px 7px),color-mix(in srgb,var(--c) 10%,#fff);transform:scaleY(0);transform-origin:bottom;transition:transform 900ms var(--ease-io),opacity 250ms ease;transition-delay:calc(var(--d)*1ms),0s}
+.bars{height:260px;width:100%;max-width:220px;display:flex;align-items:flex-end;justify-content:center;gap:14px;border-bottom:1.5px solid var(--line);background:repeating-linear-gradient(to top,transparent 0 calc(25% - 1px),var(--grid) calc(25% - 1px) 25%)}
+.bar{--c:var(--alone);flex:1;height:calc(var(--h)*1%);position:relative;border:1.5px solid var(--c);border-bottom:0;border-radius:8px 8px 0 0;background:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--c) 70%,transparent) 0 1.5px,transparent 1.5px 7px),color-mix(in srgb,var(--c) 10%,var(--surface));transform:scaleY(0);transform-origin:bottom;transition:transform 900ms var(--ease-io),opacity 250ms ease;transition-delay:calc(var(--d)*1ms),0s}
 .bar.g{--c:var(--pool)}
-.bar b{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);font:600 14px var(--body);white-space:nowrap;color:var(--alone);opacity:0;transition:opacity 400ms ease;transition-delay:calc(var(--d)*1ms + 600ms)}
+.bar b{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);font:600 14px var(--body);white-space:nowrap;color:var(--alone);opacity:0;transition:opacity 400ms var(--ease-out);transition-delay:calc(var(--d)*1ms + 600ms)}
 .bar.g b{color:var(--pool)}
 #chart.off-alone .bar:not(.g),#chart.off-pool .bar.g{opacity:.12}
 .go .bar{transform:scaleY(1)}.go .bar b{opacity:1}
 .grp h3{font:600 17px var(--body);margin-top:14px;letter-spacing:0;display:flex;align-items:center;justify-content:center;gap:8px}
 .grp h3 .logo{flex:none;width:22px;height:22px}
-.tag{margin-top:8px;padding:4px 12px;border-radius:999px;background:#FFF3D6;color:#8A5A00;font-size:13px;font-weight:600;opacity:0;transform:translateY(6px);transition:opacity 400ms ease,transform 400ms var(--ease-out);transition-delay:calc(var(--d)*1ms + 900ms)}
+.tag{margin-top:8px;padding:4px 12px;border-radius:999px;background:var(--tag-bg);color:var(--tag-ink);font-size:13px;font-weight:600;opacity:0;transform:translateY(6px);transition:opacity 400ms var(--ease-out),transform 400ms var(--ease-out);transition-delay:calc(var(--d)*1ms + 900ms)}
 .go .tag{opacity:1;transform:none}
 .total{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:32px;padding:22px 26px;border-radius:20px;background:var(--deep);color:#fff}
 .total small{display:block;font-size:14px;opacity:.75}
@@ -164,16 +190,23 @@ nav .btn{height:40px;padding:0 18px;font-size:15px}
 .bg-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .bg-lines path{fill:none;stroke-width:2;stroke-linecap:round}
 .bg-lines .base{stroke-opacity:.07}
-.bg-lines .run{stroke-dasharray:.22 2;stroke-dashoffset:.22;animation:line-run var(--t,8s) cubic-bezier(.45,0,.55,1) var(--dl,0s) infinite}
+.bg-lines .run{stroke-dasharray:.22 2;stroke-dashoffset:.22;animation:line-run var(--t,8s) var(--ease-io) var(--dl,0s) infinite}
 @keyframes line-run{to{stroke-dashoffset:-1}}
 .wl h2{margin:0;font-size:clamp(44px,9vw,96px);letter-spacing:-.045em;line-height:1}
 .wl .lead{margin:20px auto 0;max-width:560px;font-size:clamp(16px,1.6vw,18px)}
-form{display:flex;align-items:center;gap:10px;max-width:460px;margin:40px auto 0;padding:4px;border-radius:16px;background:rgba(255,255,255,.7);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-input[type=email]{flex:1;min-width:0;height:48px;padding:0 16px;border-radius:12px;border:1.5px solid transparent;background:#F1F5F2;font:400 16px var(--body);color:var(--ink);transition:border-color 160ms ease,background-color 160ms ease}
-input[type=email]:focus{outline:0;border-color:var(--green);background:#fff}
+form{display:flex;align-items:center;gap:10px;max-width:460px;margin:40px auto 0;padding:4px;border-radius:16px;background:var(--form-bg);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+input[type=email]{flex:1;min-width:0;height:48px;padding:0 16px;border-radius:12px;border:1.5px solid transparent;background:var(--field);font:400 16px var(--body);color:var(--ink);transition:border-color 160ms ease,background-color 160ms ease}
+input[type=email]:focus{outline:0;border-color:var(--green);background:var(--surface)}
+input[type=email][aria-invalid=true]{border-color:var(--err);background:var(--err-bg)}
 form .btn{height:48px;flex:none;border-radius:12px}
-.msg{min-height:24px;margin-top:12px;font-size:15px;color:var(--deep)}
-.msg.err{color:#B3261E}
+.msg{display:flex;align-items:flex-start;justify-content:center;gap:8px;min-height:24px;margin-top:12px;font-size:15px;line-height:1.45;color:var(--accent);opacity:0;transform:translateY(4px);transition:opacity 200ms var(--ease-out),transform 200ms var(--ease-out)}
+.msg.show{opacity:1;transform:none}
+.msg .mi{flex:none;width:18px;height:18px;margin-top:2px}
+.msg .mt{text-align:left}
+.msg.err{color:var(--err)}
+.msg.warn{color:var(--warn)}
+.msg.ok{color:var(--accent)}
+.msg .mfix{display:inline;margin-left:6px;padding:0;border:0;background:none;font:inherit;font-weight:600;color:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .wl .proof{justify-content:center;margin-top:28px}
 .wl .avs span{width:32px;height:32px;margin-left:-10px;font-size:13px}
 .wl .avs span:first-child{margin-left:0;background:var(--mint)}
@@ -181,18 +214,17 @@ form .btn{height:48px;flex:none;border-radius:12px}
 
 /* badges */
 .stores{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding:56px 0 8px}
-.store{display:flex;align-items:center;gap:10px;height:54px;padding:0 20px 0 16px;border-radius:12px;background:#0E1A15;color:#fff;text-decoration:none;position:relative;transition:transform 160ms var(--ease-out);cursor:default}
+.store{display:flex;align-items:center;gap:10px;height:54px;padding:0 20px 0 16px;border-radius:12px;background:var(--store-bg);color:#fff;text-decoration:none;position:relative;cursor:default}
 .store svg{width:26px;height:26px;fill:#fff}
 .store small{display:block;font-size:11px;opacity:.75;line-height:1.1}
 .store span{font:600 17px/1.15 var(--body)}
 .store em{position:absolute;top:-9px;right:-6px;font:600 10px var(--body);font-style:normal;letter-spacing:.04em;text-transform:uppercase;background:var(--amber);color:#3A2600;padding:3px 8px;border-radius:999px}
-.store:active{transform:scale(.97)}
 
 /* contact */
 .contact{padding-top:72px}
 .contact .box{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;border:1px solid var(--line);border-radius:28px;padding:40px}
 .mail{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
-.mail a.link{font:600 20px var(--body);color:var(--green);text-decoration:none;border-bottom:1.5px solid var(--mint)}
+.mail a.link{font:600 20px var(--body);color:var(--accent);text-decoration:none;border-bottom:1.5px solid var(--mint)}
 .mail p{color:var(--muted);font-size:15px}
 
 footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);margin-top:56px}
@@ -201,7 +233,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 .soc a{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--muted);transition:background-color 160ms ease,color 160ms ease,transform 160ms var(--ease-out)}
 .soc a:active{transform:scale(.94)}
 .soc svg{width:18px;height:18px;fill:currentColor;stroke:none}
-@media (hover:hover) and (pointer:fine){.soc a:hover{background:var(--mint);color:var(--green)}}
+@media (hover:hover) and (pointer:fine){.soc a:hover{background:var(--mint);color:var(--accent)}}
 
 @media (max-width:900px){
   section{padding:72px 0}
@@ -243,7 +275,10 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
   .soc a{width:44px;height:44px}
 }
 @media (prefers-reduced-motion:reduce){
+  .tv-word{animation:none}
+  nav::before,.nav-progress,.proof{transition:none}
   .bg-lines .run{animation:none;stroke-dasharray:none;stroke-opacity:.12}
+  .msg{transform:none}
   .in,[data-reveal]{animation:none!important;transform:none!important;opacity:1;transition:none}
   .phone.l{transform:rotate(-6deg) translateY(28px) scale(.88)!important}.phone.r{transform:rotate(6deg) translateY(28px) scale(.88)!important}
   .bar{transition:opacity 300ms ease;transform:none;opacity:0}.go .bar{opacity:1}
@@ -258,46 +293,162 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 .cloud{position:relative;width:100%;max-width:440px;aspect-ratio:1;justify-self:center}
 .cloud canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
 .cloud canvas:active{cursor:grabbing}
-.cloud-toggle{position:absolute;top:6px;right:6px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--muted);display:grid;place-items:center;cursor:pointer;transition:color 160ms ease,border-color 160ms ease}
-.cloud-toggle:hover{color:var(--green);border-color:var(--green)}
-.cloud-toggle svg{width:14px;height:14px}
 @media (max-width:767px){
   .apps{padding:48px 0 8px}
   .apps .wrap{grid-template-columns:1fr;gap:12px}
   .cloud{max-width:320px}
 }
-/* loading screen: PoolIt logo; the two small circles drift out and rejoin the centre */
-.loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);transition:opacity 380ms var(--ease-out),visibility 0s linear 380ms;animation:loader-failsafe 0s linear 6s forwards}
+/* loading screen = the app's splash (poolit-mobile: splash_screen.dart + poolit_loader.dart).
+   The bar swings half a turn through the pool, the two floats trail it, the pool pulses, a ripple
+   leaves the water. In the brand green; motion is driven by the script after the markup. */
+.loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);transition:opacity 320ms var(--ease-out),visibility 0s linear 320ms;animation:loader-failsafe 0s linear 7s forwards}
 .loader.done{opacity:0;visibility:hidden}
-.loader svg{width:88px;height:88px;overflow:visible;animation:loader-in 450ms var(--ease-out) both}
-.loader.done svg{transform:scale(1.08);transition:transform 380ms var(--ease-out)}
-.loader .tile{transform-box:fill-box;transform-origin:center;animation:loader-breathe 1.4s var(--ease-io) 450ms infinite}
-.loader .dot{transform-box:fill-box;transform-origin:center;animation:loader-pool-a 1.4s var(--ease-io) 450ms infinite}
-.loader .dot.b{animation-name:loader-pool-b}
-@keyframes loader-in{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:none}}
-@keyframes loader-breathe{0%,100%{transform:none}50%{transform:scale(.95)}}
-@keyframes loader-pool-a{0%,100%{transform:none}50%{transform:translate(-120px,120px) scale(.8)}}
-@keyframes loader-pool-b{0%,100%{transform:none}50%{transform:translate(120px,-120px) scale(.8)}}
+.loader-stack{position:relative;width:136px;height:136px}
+.loader{color:var(--logo)}
+.loader svg{display:block;width:136px;height:136px;overflow:visible;fill:currentColor}
+.loader .edge{stroke:var(--logo-edge)}
+.loader .bar,.loader .floats,.loader .pool,.loader .ring{transform-origin:444.69px 449.69px}
+.loader .ring{opacity:0}
+.loader .edge{opacity:0}
 @keyframes loader-failsafe{to{opacity:0;visibility:hidden}}
-@media (prefers-reduced-motion:reduce){.loader svg,.loader .tile,.loader .dot{animation:none}}
+/* the page's own entrance waits until the loader has gone, so it is actually seen */
+html.has-loader:not(.ready) .in,html.has-loader:not(.ready) .tv-word{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.loader .edge{opacity:1}}
+
+/* household note + FAQ */
+.fine{margin-top:14px;max-width:440px;font-size:14px;line-height:1.5;color:var(--muted)}
+.faq{padding:96px 0 24px}
+.faq .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:56px;align-items:start}
+.faq h2{margin-top:0}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-child{border-top:1px solid var(--line)}
+.faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 4px;font:600 18px/1.35 var(--body);cursor:pointer;list-style:none;transition:color 160ms ease}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:14px;height:14px;color:var(--muted);background:linear-gradient(currentColor,currentColor) center/100% 2px no-repeat,linear-gradient(currentColor,currentColor) center/2px 100% no-repeat;transition:transform 220ms var(--ease-out)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 22px;padding:0 36px 0 4px;color:var(--muted);animation:faq-in 240ms var(--ease-out)}
+@keyframes faq-in{from{opacity:0;transform:translateY(-4px)}}
+@media (hover:hover) and (pointer:fine){.faq summary:hover{color:var(--accent)}}
+@media (max-width:767px){
+  .faq{padding:56px 0 8px}
+  .faq .wrap{grid-template-columns:1fr;gap:20px}
+  .faq summary{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){.faq details p{animation:none}.faq summary::after{transition:none}}
+
+/* dark theme: follows the system setting, with the app's own dark palette (poolit-mobile: poolit_colors.dart) */
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0C0D0E;--ink:#F2F3F4;--muted:#9BA1A6;--line:#26292C;--mint:#13271F;--gray:#2C3033;
+    --green:#128462;--deep:#0A5C42;--accent:#3FCF98;
+    --surface:#17191B;--surface2:#101214;--field:#202326;--hover:#202326;--grid:#202326;
+    --tag-bg:#3A3113;--tag-ink:#F5D565;
+    --glass:rgba(12,13,14,.66);--glass-line:rgba(255,255,255,.08);--form-bg:rgba(23,25,27,.7);
+    --err:#F87171;--err-bg:#3A1A1A;--warn:#FBBF24;
+    --store-bg:#17191B;--bezel:#2C3033;--logo:#3FCF98;--logo-edge:rgba(0,0,0,.4);
+  }
+  #chart{--alone:#F87171;--pool:#34D399}
+  .store{box-shadow:inset 0 0 0 1px var(--line)}
+  .tv{outline:.03em solid rgba(255,255,255,.18)}
+  .avs span{filter:brightness(.8)}
+  .phone{box-shadow:0 30px 60px -20px rgba(63,207,152,.16),0 8px 20px rgba(0,0,0,.55)}
+  .bg-lines .base{stroke:#3FCF98;stroke-opacity:.07}
+  .bg-lines .run{stroke:#3FCF98;stroke-opacity:.5}
+}
 </style>
 </head>
 <body>
-<div class="loader" id="loader" role="status" aria-label="Loading PoolIt"><svg viewBox="0 0 1022 1022" aria-hidden="true"><g class="tile"><rect x="5.5" y="5.5" width="1011" height="1011" rx="205.5" fill="#0D6B4E"/><path fill="#fff" d="M84.1544 84.1544C114.615 53.6935 164.002 53.6935 194.463 84.1544L396.544 286.235C401.07 284.031 405.667 281.962 410.329 280.03C440.661 267.467 473.17 261 506 261C538.831 261 571.34 267.467 601.671 280.03C632.002 292.594 659.562 311.009 682.776 334.224C705.991 357.438 724.406 384.998 736.97 415.329C749.533 445.661 756 478.17 756 511C756 543.831 749.533 576.34 736.97 606.671C735.039 611.333 732.968 615.929 730.764 620.455L937.779 827.471C968.24 857.932 968.24 907.318 937.779 937.779C907.319 968.24 857.932 968.24 827.471 937.779L622.098 732.406C615.447 735.894 608.632 739.086 601.671 741.97C571.34 754.533 538.831 761 506 761C473.17 761 440.661 754.533 410.329 741.97C379.998 729.406 352.438 710.991 329.224 687.776C306.009 664.562 287.594 637.002 275.03 606.671C262.467 576.34 256 543.831 256 511C256 478.17 262.467 445.661 275.03 415.329C277.914 408.368 281.106 401.552 284.593 394.901L84.1544 194.463C53.6936 164.002 53.6935 114.615 84.1544 84.1544Z"/></g><circle class="dot a" cx="256" cy="761" r="100" fill="#fff"/><circle class="dot b" cx="756" cy="261" r="100" fill="#fff"/></svg></div>
-<script>(function(){var l=document.getElementById("loader"),t0=Date.now(),gone=false,hide=function(){if(gone)return;gone=true;setTimeout(function(){l.classList.add("done");setTimeout(function(){l.remove()},500)},Math.max(0,900-(Date.now()-t0)))};if(document.readyState==="complete")hide();else addEventListener("load",hide);setTimeout(hide,4000)})();</script>
+<div class="loader" id="loader" role="status" aria-label="Loading PoolIt">
+  <div class="loader-stack">
+    <svg viewBox="0 0 900 900" aria-hidden="true">
+      <circle class="ring" cx="444.69" cy="449.69" r="250" fill="none" stroke="currentColor" stroke-width="6"/>
+      <line class="bar" x1="78" y1="78" x2="821.31" y2="821.31" stroke="currentColor" stroke-width="156" stroke-linecap="round"/>
+      <g class="floats"><circle cx="194.69" cy="699.69" r="100"/><circle cx="694.69" cy="199.69" r="100"/></g>
+      <circle class="pool" cx="444.69" cy="449.69" r="250"/>
+      <circle class="edge" cx="444.69" cy="449.69" r="245" fill="none" stroke-width="10"/>
+    </svg>
+  </div>
+</div>
+<script>
+// Splash timings and curves are the app's own: 1500ms intro, easeInOutCubic swing over the first 75%,
+// ripple from 10% to 80%. The screen leaves at 1700ms (the app routes then) once the page has loaded.
+(function(){
+  var root=document.documentElement,l=document.getElementById('loader');
+  if(!l)return;
+  // play the splash on the first load of a session; refreshes and return visits skip it (add ?splash to force it)
+  try{
+    if(!/[?&]splash\b/.test(location.search)&&sessionStorage.getItem('poolit-splash')){l.remove();return}
+    sessionStorage.setItem('poolit-splash','1');
+  }catch(e){}
+  root.classList.add('has-loader');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var T=1500,MIN=reduce?500:1700,start=performance.now(),loaded=document.readyState==='complete',queued=false;
+  function bez(x1,y1,x2,y2){return function(t){
+    if(t<=0)return 0;if(t>=1)return 1;
+    var lo=0,hi=1,u=t,x,i;
+    for(i=0;i<28;i++){x=3*(1-u)*(1-u)*u*x1+3*(1-u)*u*u*x2+u*u*u;if(x<t)lo=u;else hi=u;u=(lo+hi)/2}
+    return 3*(1-u)*(1-u)*u*y1+3*(1-u)*u*u*y2+u*u*u;
+  }}
+  var easeIO=bez(.645,.045,.355,1),easeOut=bez(0,0,.58,1),PI=Math.PI,D=180/PI,N=48;
+  function c01(v){return Math.max(0,Math.min(1,v))}
+  // sample the app's formulas into keyframes, so the browser can run them off the main thread
+  function frames(intro){
+    var bar=[],fl=[],pool=[],ring=[],i;
+    for(i=0;i<=N;i++){
+      var t=i/N,sw,rp,lag,pu;
+      if(intro){sw=easeIO(c01(t/.75));rp=easeOut(c01((t-.1)/.7));var a=Math.sin(PI*sw);lag=-.6*a;pu=1-.1*a}
+      else{sw=easeIO(t);rp=easeOut(t);lag=-.5*Math.sin(PI*t);pu=1-.08*Math.sin(PI*t)}
+      if(rp>=1)rp=0;
+      var deg=sw*PI*D,s=rp>0?(250+220*rp)/250:1;
+      bar.push({offset:t,transform:'rotate('+deg+'deg)'});
+      fl.push({offset:t,transform:'rotate('+(deg+lag*D)+'deg)'});
+      pool.push({offset:t,transform:'scale('+pu+')'});
+      ring.push({offset:t,transform:'scale('+s+')',strokeWidth:rp>0?(30*(1-rp)+6)/s:0,opacity:rp>0?(1-rp)*.5:0});
+    }
+    return {bar:bar,fl:fl,pool:pool,ring:ring};
+  }
+  var e={bar:l.querySelector('.bar'),fl:l.querySelector('.floats'),pool:l.querySelector('.pool'),ring:l.querySelector('.ring'),edge:l.querySelector('.edge')};
+  function play(intro){
+    var f=frames(intro),o={duration:T,easing:'linear',fill:intro?'forwards':'none',iterations:intro?1:Infinity};
+    return [e.bar.animate(f.bar,o),e.fl.animate(f.fl,o),e.pool.animate(f.pool,o),e.ring.animate(f.ring,o)];
+  }
+  if(!reduce&&e.bar.animate){
+    var intro=play(true);
+    // the hairline inside the pool appears once the swing has landed, as in the app
+    e.edge.animate([{opacity:0,offset:.7499},{opacity:1,offset:.75},{opacity:1}],{duration:T,fill:'forwards'});
+    // slow connection: keep the loader moving (the app's PoolItLoader loop) until the page is ready
+    setTimeout(function(){
+      if(queued||loaded)return;
+      intro.forEach(function(a){a.cancel()});e.edge.getAnimations().forEach(function(a){a.cancel()});
+      play(false);
+    },T);
+  }else{e.edge.style.opacity=1}
+  function hide(){
+    if(queued)return;queued=true;
+    setTimeout(function(){
+      root.classList.add('ready');
+      l.classList.add('done');
+      setTimeout(function(){l.remove()},400);
+    },Math.max(0,MIN-(performance.now()-start)));
+  }
+  addEventListener('load',function(){loaded=true;hide()});
+  if(loaded)hide();
+  setTimeout(function(){loaded=true;hide()},5000); // never trap a visitor behind the loader
+})();
+</script>
 <nav aria-label="Primary navigation"><div class="wrap">
   <a class="brand" href="#top"><img src="data:image/png;base64,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" alt="">PoolIt</a>
   <a class="btn" href="#waitlist">Join waitlist</a>
-</div></nav>
+</div><span class="nav-progress" id="navProgress" aria-hidden="true"></span></nav>
 
 <main id="top">
 <header class="hero"><div class="wrap">
   <div>
-    <h1 class="in">Split the bill. <em>Keep the stream.</em></h1>
-    <p class="lead in" style="--i:1">Share Netflix, Spotify, Prime Video and more with your neighbours. Your share is collected automatically, every month.</p>
+    <h1 class="in"><span class="l1"><span class="split" data-text="Split">Split</span> the bill.</span> <span class="l2">Keep the</span> <span class="l3"><span class="tv"><span class="tv-word">stream</span></span>.</span></h1>
+    <p class="lead in" style="--i:1">Fill the spare seats on Netflix, Spotify, Prime Video and more with your neighbours. Your share is collected automatically, every month.</p>
     <div class="cta in" style="--i:2"><a class="btn" href="#waitlist">Join the waitlist</a><a class="btn ghost" href="#savings">See how much you save</a></div>
     <ul class="feats">
-      <li class="in" style="--i:4"><span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.4"/><path d="M3.5 19c.4-3 2.6-5 5.5-5s5.100 2 5.500 5M15 14.300c2.600-.4 4.800 1 5.500 4"/></svg></span><div><h3>Pool with your neighbours</h3><p>Start or join a group for the plans you already pay for.</p></div></li>
+      <li class="in" style="--i:4"><span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.4"/><path d="M3.5 19c.4-3 2.6-5 5.5-5s5.100 2 5.500 5M15 14.300c2.600-.4 4.800 1 5.500 4"/></svg></span><div><h3>Pool with your neighbours</h3><p>Start or join a group for plans that come with spare seats.</p></div></li>
       <li class="in" style="--i:5"><span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.500" width="18" height="13" rx="3"/><path d="M3 10h18M7 15h3"/></svg></span><div><h3>Automatic monthly shares</h3><p>Link a card once. No chasing anyone for transfers.</p></div></li>
       <li class="in" style="--i:6"><span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a7.500 7.500 0 0 1-11 6.600L4 20l1.300-4.200A7.500 7.500 0 1 1 20 12Z"/><path d="M9 11h6M9 14h3.500"/></svg></span><div><h3>Clear billing, built-in chat</h3><p>See who has joined, the next billing date, and talk to the group.</p></div></li>
     </ul>
@@ -313,31 +464,66 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
   <div>
     <h2 data-reveal>Pool the plans you already pay for.</h2>
     <p class="lead" data-reveal style="--i:1">Netflix, Spotify, YouTube Premium, Google One, Canva, Prime Video, Apple Music and more. If a plan comes with family or group seats, PoolIt helps you fill them and split the bill.</p>
+    <p class="fine" data-reveal style="--i:1">Each service sets its own sharing rules. Netflix allows paid extra members outside your home, and Spotify Family is for people at one address. Check a plan's rules before you pool it.</p>
   </div>
   <div class="cloud" data-reveal style="--i:2">
     <canvas id="iconCloud" role="img" aria-label="Logos of subscription services you can share on PoolIt, including Netflix, Spotify, YouTube, Google One, Canva, Prime Video and Apple Music"></canvas>
-    <button class="cloud-toggle" type="button" id="cloudToggle" aria-label="Pause animation"><svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><rect x="3.5" y="2.5" width="3" height="11" rx="1"/><rect x="9.5" y="2.5" width="3" height="11" rx="1"/></svg></button>
+    <noscript><style>.cloud canvas{display:none}</style><div class="cloud-static"><img src="logos/netflix.svg" alt="" width="46" height="46"><img src="logos/spotify.svg" alt="" width="46" height="46"><img src="logos/youtube.svg" alt="" width="46" height="46"><img src="logos/google-one.svg" alt="" width="46" height="46"><img src="logos/canva.svg" alt="" width="46" height="46"><img src="logos/prime-video.svg" alt="" width="46" height="46"><img src="logos/apple-music.svg" alt="" width="46" height="46"><img src="logos/disney-plus.svg" alt="" width="46" height="46"><img src="logos/youtube-music.svg" alt="" width="46" height="46"><img src="logos/playstation.svg" alt="" width="46" height="46"><img src="logos/icloud.svg" alt="" width="46" height="46"><img src="logos/hbo-max.svg" alt="" width="46" height="46"><img src="logos/deezer.svg" alt="" width="46" height="46"><img src="logos/audible.svg" alt="" width="46" height="46"><img src="logos/crunchyroll.svg" alt="" width="46" height="46"><img src="logos/soundcloud.svg" alt="" width="46" height="46"><img src="logos/dropbox.svg" alt="" width="46" height="46"><img src="logos/tidal.svg" alt="" width="46" height="46"><img src="logos/audiomack.svg" alt="" width="46" height="46"></div></noscript>
   </div>
 </div></section>
 
 <section class="savings" id="savings"><div class="wrap">
-  <h2 data-reveal style="--i:1;margin-top:0"><span data-mark="underline" data-color="#F0A500">Same shows</span>. A <span data-mark="highlight" data-color="#BFE6D3">fraction</span> of the price.</h2>
+  <h2 data-reveal style="--i:1;margin-top:0"><span data-mark="underline" data-color="#F0A500">Same shows</span>. A <span data-mark="highlight" data-color="#BFE6D3" data-color-dark="#14503C">fraction</span> of the price.</h2>
   <p class="lead" data-reveal style="--i:2">Here is what one month looks like when you subscribe alone, against sharing the same plan in a PoolIt group.</p>
+  <!-- Chart data, NGN per month, November 2026 (re-check before launch):
+       Netflix Premium 8,500 + 2 extra members x 2,500 = 13,500 / 5 people = 2,700   (help.netflix.com/en/node/24926)
+       Spotify Family 2,500 / 6 people = 417                                          (spotify.com/ng/premium)
+       Prime Video 2,300 / 3 people = 767   (third-party reports only: Amazon publishes no Nigerian price)
+       Monthly saving = (2,300-767)+(2,500-417)+(8,500-2,700) = 9,416 ; yearly = 9,416 x 12 = 112,992 -->
   <div class="chart-card" id="chart" data-reveal>
     <div class="legend"><button type="button" aria-pressed="true" data-series="alone"><i></i><span>Paying alone</span></button><button type="button" aria-pressed="true" data-series="pool"><i></i><span>Your share on PoolIt</span></button></div>
     <div class="groups">
       <div class="grp"><div class="bars">
-        <div class="bar" style="--h:44;--d:0"><b data-n="3500">₦0</b></div><div class="bar g" style="--h:15;--d:120"><b data-n="1167">₦0</b></div></div>
-        <h3><svg class="logo" viewBox="0 -50 1100 1100" aria-hidden="true"><path fill="#0E1A15" d="M2 776c3.333-5.333 8.666-5.667 16-1 166.666 96.667 348 145 544 145 130.666 0 259.666-24.333 387-73 3.333-1.333 8.166-3.333 14.5-6 6.333-2.667 10.833-4.667 13.5-6 10-4 17.833-2 23.5 6 5.666 8 3.833 15.333-5.5 22-12 8.667-27.334 18.667-46 30-57.334 34-121.334 60.333-192 79-70.667 18.667-139.667 28-207 28-104 0-202.334-18.167-295-54.5C162.333 909.167 79.333 858 6 792c-4-3.333-6-6.667-6-10 0-2 .666-4 2-6zm301-285c0-46 11.333-85.333 34-118 22.666-32.667 53.666-57.333 93-74 36-15.333 80.333-26.333 133-33 18-2 47.333-4.667 88-8v-17c0-42.667-4.667-71.333-14-86-14-20-36-30-66-30h-8c-22 2-41 9-57 21s-26.334 28.667-31 50c-2.667 13.333-9.334 21-20 23l-115-14c-11.334-2.667-17-8.667-17-18 0-2 .333-4.333 1-7 11.333-59.333 39.166-103.333 83.5-132C451.833 19.333 503.666 3.333 563 0h25c76 0 135.333 19.667 178 59a190.520 190.520 0 0 1 18.5 21.5c5.666 7.667 10.166 14.5 13.5 20.5 3.333 6 6.333 14.667 9 26 2.666 11.333 4.666 19.167 6 23.5 1.333 4.333 2.333 13.667 3 28 .666 14.333 1 22.833 1 25.5v242c0 17.333 2.5 33.167 7.5 47.5s9.833 24.667 14.5 31c4.666 6.333 12.333 16.5 23 30.5 4 6 6 11.333 6 16 0 5.333-2.667 10-8 14-55.334 48-85.334 74-90 78-8 6-17.667 6.667-29 2-9.334-8-17.5-15.667-24.5-23s-12-12.667-15-16-7.834-9.833-14.5-19.5c-6.667-9.667-11.334-16.167-14-19.5-37.334 40.667-74 66-110 76-22.667 6.667-50.667 10-84 10-51.334 0-93.5-15.833-126.5-47.5S303 549 303 491zm172-20c0 26 6.5 46.833 19.5 62.5S525 557 547 557c2 0 4.833-.333 8.5-1 3.666-.667 6.166-1 7.5-1 28-7.333 49.666-25.333 65-54 7.333-12.667 12.833-26.5 16.5-41.5 3.666-15 5.666-27.167 6-36.5.333-9.333.5-24.667.5-46v-25c-38.667 0-68 2.667-88 8-58.667 16.667-88 53.667-88 111zm420 322c1.333-2.667 3.333-5.333 6-8 16.666-11.333 32.666-19 48-23 25.333-6.667 50-10.333 74-11 6.666-.667 13-.333 19 1 30 2.667 48 7.667 54 15 2.666 4 4 10 4 18v7c0 23.333-6.334 50.833-19 82.5-12.667 31.667-30.334 57.167-53 76.5-3.334 2.667-6.334 4-9 4-1.334 0-2.667-.333-4-1-4-2-5-5.667-3-11 24.666-58 37-98.333 37-121 0-7.333-1.334-12.667-4-16-6.667-8-25.334-12-56-12-11.334 0-24.667.667-40 2-16.667 2-32 4-46 6-4 0-6.667-.667-8-2-1.334-1.333-1.667-2.667-1-4 0-.667.333-1.667 1-3z"/></svg>Prime Video</h3><span class="tag" style="--d:0">Save 67%<span class="mm"> · 3 members</span></span></div>
+        <div class="bar" style="--h:27;--d:0"><b data-n="2300">₦0</b></div><div class="bar g" style="--h:9;--d:120"><b data-n="767">₦0</b></div></div>
+        <h3><svg class="logo" viewBox="0 -50 1100 1100" aria-hidden="true"><path fill="currentColor" d="M2 776c3.333-5.333 8.666-5.667 16-1 166.666 96.667 348 145 544 145 130.666 0 259.666-24.333 387-73 3.333-1.333 8.166-3.333 14.5-6 6.333-2.667 10.833-4.667 13.5-6 10-4 17.833-2 23.5 6 5.666 8 3.833 15.333-5.5 22-12 8.667-27.334 18.667-46 30-57.334 34-121.334 60.333-192 79-70.667 18.667-139.667 28-207 28-104 0-202.334-18.167-295-54.5C162.333 909.167 79.333 858 6 792c-4-3.333-6-6.667-6-10 0-2 .666-4 2-6zm301-285c0-46 11.333-85.333 34-118 22.666-32.667 53.666-57.333 93-74 36-15.333 80.333-26.333 133-33 18-2 47.333-4.667 88-8v-17c0-42.667-4.667-71.333-14-86-14-20-36-30-66-30h-8c-22 2-41 9-57 21s-26.334 28.667-31 50c-2.667 13.333-9.334 21-20 23l-115-14c-11.334-2.667-17-8.667-17-18 0-2 .333-4.333 1-7 11.333-59.333 39.166-103.333 83.5-132C451.833 19.333 503.666 3.333 563 0h25c76 0 135.333 19.667 178 59a190.520 190.520 0 0 1 18.5 21.5c5.666 7.667 10.166 14.5 13.5 20.5 3.333 6 6.333 14.667 9 26 2.666 11.333 4.666 19.167 6 23.5 1.333 4.333 2.333 13.667 3 28 .666 14.333 1 22.833 1 25.5v242c0 17.333 2.5 33.167 7.5 47.5s9.833 24.667 14.5 31c4.666 6.333 12.333 16.5 23 30.5 4 6 6 11.333 6 16 0 5.333-2.667 10-8 14-55.334 48-85.334 74-90 78-8 6-17.667 6.667-29 2-9.334-8-17.5-15.667-24.5-23s-12-12.667-15-16-7.834-9.833-14.5-19.5c-6.667-9.667-11.334-16.167-14-19.5-37.334 40.667-74 66-110 76-22.667 6.667-50.667 10-84 10-51.334 0-93.5-15.833-126.5-47.5S303 549 303 491zm172-20c0 26 6.5 46.833 19.5 62.5S525 557 547 557c2 0 4.833-.333 8.5-1 3.666-.667 6.166-1 7.5-1 28-7.333 49.666-25.333 65-54 7.333-12.667 12.833-26.5 16.5-41.5 3.666-15 5.666-27.167 6-36.5.333-9.333.5-24.667.5-46v-25c-38.667 0-68 2.667-88 8-58.667 16.667-88 53.667-88 111zm420 322c1.333-2.667 3.333-5.333 6-8 16.666-11.333 32.666-19 48-23 25.333-6.667 50-10.333 74-11 6.666-.667 13-.333 19 1 30 2.667 48 7.667 54 15 2.666 4 4 10 4 18v7c0 23.333-6.334 50.833-19 82.5-12.667 31.667-30.334 57.167-53 76.5-3.334 2.667-6.334 4-9 4-1.334 0-2.667-.333-4-1-4-2-5-5.667-3-11 24.666-58 37-98.333 37-121 0-7.333-1.334-12.667-4-16-6.667-8-25.334-12-56-12-11.334 0-24.667.667-40 2-16.667 2-32 4-46 6-4 0-6.667-.667-8-2-1.334-1.333-1.667-2.667-1-4 0-.667.333-1.667 1-3z"/></svg>Prime Video</h3><span class="tag" style="--d:0">Save 67%<span class="mm"> · 3 members</span></span></div>
       <div class="grp"><div class="bars">
-        <div class="bar" style="--h:94;--d:160"><b data-n="7500">₦0</b></div><div class="bar g" style="--h:16;--d:280"><b data-n="1250">₦0</b></div></div>
+        <div class="bar" style="--h:29;--d:160"><b data-n="2500">₦0</b></div><div class="bar g" style="--h:5;--d:280"><b data-n="417">₦0</b></div></div>
         <h3><svg class="logo" viewBox="74.428 1369.145 2931 2931" aria-hidden="true"><path fill="#2EBD59" d="M1539.928 1369.145c-809.356 0-1465.5 656.126-1465.5 1465.482 0 809.443 656.144 1465.535 1465.5 1465.535 809.392 0 1465.5-656.091 1465.5-1465.535 0-809.304-656.074-1465.412-1465.518-1465.412l.018-.07zm672.069 2113.646c-26.32 43.173-82.565 56.7-125.598 30.397-344.137-210.332-777.297-257.845-1287.421-141.312-49.157 11.271-98.157-19.547-109.356-68.688-11.253-49.157 19.424-98.157 68.704-109.356 558.249-127.628 1037.101-72.695 1423.378 163.344 43.05 26.426 56.699 82.601 30.275 125.65l.018-.035zm179.374-398.981c-33.145 53.777-103.46 70.647-157.167 37.624-393.837-242.094-994.384-312.217-1460.32-170.781-60.428 18.252-124.25-15.803-142.59-76.125-18.2-60.428 15.873-124.128 76.195-142.503 532.227-161.489 1193.865-83.265 1646.239 194.723 53.726 33.075 70.7 103.425 37.625 157.079l.018-.017zm15.4-415.52c-472.395-280.542-1251.599-306.337-1702.556-169.47-72.414 21.962-148.994-18.918-170.939-91.333-21.945-72.449 18.9-148.977 91.367-170.992 517.667-157.149 1378.229-126.787 1922.022 196.035 65.135 38.657 86.503 122.779 47.897 187.827-38.5 65.135-122.85 86.607-187.774 47.933h-.017z"/></svg>Spotify Family</h3><span class="tag" style="--d:160">Save 83%<span class="mm"> · 6 members</span></span></div>
       <div class="grp"><div class="bars">
-        <div class="bar" style="--h:100;--d:320"><b data-n="8000">₦0</b></div><div class="bar g" style="--h:25;--d:440"><b data-n="2000">₦0</b></div></div>
-        <h3><svg class="logo" viewBox="-49.6 0 222 222" aria-hidden="true"><defs><radialGradient id="nfxShade" cx="18038.016" cy="-146.44" r="368.717" gradientTransform="matrix(.07072 -.02449 -.897 -2.5906 -1526.665 25.194)" gradientUnits="userSpaceOnUse"><stop offset="0"/><stop offset="1" stop-opacity="0"/></radialGradient></defs><g transform="translate(12.495 6.756) translate(81.631 113.771) scale(.29074)"><path fill="#b1060f" d="M-52.5-412.3l-.3 168-.3 168-13.8-39v-.1l-17.9 374c17.6 49.6 27 76.1 27.1 76.2.1.1 10.1.7 22.2 1.3 36.6 1.8 82 5.7 116.5 10 8 1 14.8 1.5 15.3 1.1s.6-171.4.5-380.1l-.3-379.4h-149z"/><path fill="#b1060f" d="M-322-412.8V-33c0 208.9.2 380 .5 380.3.3.3 13.2-1 28.8-2.7 15.6-1.7 37.1-3.9 47.8-4.8 16.4-1.4 65.6-4.5 71.2-4.6 1.7 0 1.8-8.5 2-160.9l.3-160.9 11.9 33.6c1.8 5.2 2.4 6.8 4.200 11.9l17.9-373.9c-3.8-10.7-1.8-5.1-6.1-17.3-14.6-41.3-27-76.2-27.5-77.8l-1-2.8h-150z"/><path fill="url(#nfxShade)" d="M-322-412.8v213.2l150.2 398.4c0-9.1 0-14.1.1-24.5l.3-160.9 11.9 33.6C-93.5 234.2-58 334.6-57.8 334.8c.1.1 10.1.7 22.2 1.3 36.6 1.8 82 5.7 116.5 10 8 1 14.8 1.5 15.3 1.1.3-.3.5-84.1.5-202.4L-52.7-285l-.1 40.7-.3 168-13.8-39c-13.5-38.1-22.5-63.6-76.8-217-14.6-41.3-27-76.2-27.5-77.8l-1-2.8H-322v.1z"/><path fill="#e50914" d="M-322-412.8l150.5 426.5v-.2l11.9 33.6C-93.5 234.2-58 334.6-57.8 334.8c.1.1 10.1.7 22.2 1.3 36.6 1.8 82 5.7 116.5 10 7.9 1 14.8 1.5 15.2 1.1L-53.1-76.4v.1l-13.8-39c-13.5-38.1-22.5-63.6-76.8-217-14.6-41.3-27-76.2-27.5-77.8l-1-2.8h-74.9l-74.9.1z"/></g></svg>Netflix Premium</h3><span class="tag" style="--d:320">Save 75%<span class="mm"> · 4 members</span></span></div>
+        <div class="bar" style="--h:100;--d:320"><b data-n="8500">₦0</b></div><div class="bar g" style="--h:32;--d:440"><b data-n="2700">₦0</b></div></div>
+        <h3><svg class="logo" viewBox="-49.6 0 222 222" aria-hidden="true"><defs><radialGradient id="nfxShade" cx="18038.016" cy="-146.44" r="368.717" gradientTransform="matrix(.07072 -.02449 -.897 -2.5906 -1526.665 25.194)" gradientUnits="userSpaceOnUse"><stop offset="0"/><stop offset="1" stop-opacity="0"/></radialGradient></defs><g transform="translate(12.495 6.756) translate(81.631 113.771) scale(.29074)"><path fill="#b1060f" d="M-52.5-412.3l-.3 168-.3 168-13.8-39v-.1l-17.9 374c17.6 49.6 27 76.1 27.1 76.2.1.1 10.1.7 22.2 1.3 36.6 1.8 82 5.7 116.5 10 8 1 14.8 1.5 15.3 1.1s.6-171.4.5-380.1l-.3-379.4h-149z"/><path fill="#b1060f" d="M-322-412.8V-33c0 208.9.2 380 .5 380.3.3.3 13.2-1 28.8-2.7 15.6-1.7 37.1-3.9 47.8-4.8 16.4-1.4 65.6-4.5 71.2-4.6 1.7 0 1.8-8.5 2-160.9l.3-160.9 11.9 33.6c1.8 5.2 2.4 6.8 4.200 11.9l17.9-373.9c-3.8-10.7-1.8-5.1-6.1-17.3-14.6-41.3-27-76.2-27.5-77.8l-1-2.8h-150z"/><path fill="url(#nfxShade)" d="M-322-412.8v213.2l150.2 398.4c0-9.1 0-14.1.1-24.5l.3-160.9 11.9 33.6C-93.5 234.2-58 334.6-57.8 334.8c.1.1 10.1.7 22.2 1.3 36.6 1.8 82 5.7 116.5 10 8 1 14.8 1.5 15.3 1.1.3-.3.5-84.1.5-202.4L-52.7-285l-.1 40.7-.3 168-13.8-39c-13.5-38.1-22.5-63.6-76.8-217-14.6-41.3-27-76.2-27.5-77.8l-1-2.8H-322v.1z"/><path fill="#e50914" d="M-322-412.8l150.5 426.5v-.2l11.9 33.6C-93.5 234.2-58 334.6-57.8 334.8c.1.1 10.1.7 22.2 1.3 36.6 1.8 82 5.7 116.5 10 7.9 1 14.8 1.5 15.2 1.1L-53.1-76.4v.1l-13.8-39c-13.5-38.1-22.5-63.6-76.8-217-14.6-41.3-27-76.2-27.5-77.8l-1-2.8h-74.9l-74.9.1z"/></g></svg>Netflix Premium</h3><span class="tag" style="--d:320">Save 68%<span class="mm"> · 5 members</span></span></div>
     </div>
-    <div class="total"><div><small>You keep every month</small><strong class="amber" data-n="14583" data-total>₦0</strong></div><div style="text-align:right"><small>That is about, per year</small><strong data-n="174996" data-total>₦0</strong></div></div>
-    <p class="note">Illustrative figures based on typical plan prices and group sizes. Actual prices vary by plan and group.</p>
+    <div class="total"><div><small>Every month, you keep</small><strong class="amber" data-n="9416" data-total>₦0</strong></div><div style="text-align:right"><small>In a year, that adds up to</small><strong data-n="112992" data-total>₦0</strong></div></div>
+    <p class="note">Based on Nigerian plan prices in November 2026, split evenly between the members shown. Netflix counts Premium plus its two paid extra-member slots at ₦2,500 each. Prices change, so check each service for today's price.</p>
+  </div>
+</div></section>
+
+<section class="faq" id="faq"><div class="wrap">
+  <div class="faq-head">
+    <h2 data-reveal>What to know before you join.</h2>
+    <p class="lead" data-reveal style="--i:1">The short answers people ask first. More will follow as PoolIt opens.</p>
+  </div>
+  <div class="faq-list" data-reveal style="--i:2">
+    <details>
+      <summary>Can I share Netflix or Spotify with people outside my home?</summary>
+      <p>Only as each service allows. Netflix lets you add paid extra members outside your household, at ₦2,500 a month each and up to two on Premium. Spotify Family is meant for up to six people at the same address. Check a plan's rules before you pool it.</p>
+    </details>
+    <details>
+      <summary>How is my share worked out?</summary>
+      <p>It is the plan price split between the people in the group. Spotify Family at ₦2,500 across six people is about ₦417 each. Netflix Premium adds two paid extra-member slots, so a group of five splits ₦13,500 between them, which is ₦2,700 each.</p>
+    </details>
+    <details>
+      <summary>When am I charged?</summary>
+      <p>Your share is collected automatically every month. You link a card once, so nobody has to chase transfers.</p>
+    </details>
+    <details>
+      <summary>Which services can I pool?</summary>
+      <p>Netflix, Spotify, YouTube Premium, Google One, Canva, Prime Video, Apple Music and more. Any plan that comes with family or group seats can work, each under its own rules.</p>
+    </details>
+    <details>
+      <summary>When does PoolIt open?</summary>
+      <p>We are starting with a waitlist. Join it and we will email you the moment PoolIt is ready in your neighbourhood.</p>
+    </details>
   </div>
 </div></section>
 
@@ -350,7 +536,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
       <button class="btn" type="submit" id="sb">Join waitlist</button>
     </form>
     <p class="msg" id="msg" role="status" aria-live="polite"></p>
-    <div class="proof"><div class="avs" aria-hidden="true"><span>J</span><span style="--av:#FFE7B0">H</span><span style="--av:#E4E9FF">A</span><span style="--av:#CDEBDC">T</span><span style="--av:#FFDCD6">K</span><span class="more">+2k</span></div><span><strong>2,000+</strong> people already joined</span></div>
+    <div class="proof" id="proof"><div class="avs" id="proofAvs" aria-hidden="true"></div><span id="proofText"></span></div>
   </div>
   <div class="stores" data-reveal>
     <div class="store" aria-label="App Store, coming soon"><svg aria-hidden="true" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><div><small>Download on the</small><span>App Store</span></div><em>Soon</em></div>
@@ -398,6 +584,7 @@ document.querySelectorAll('#chart [data-n]').forEach(function (el) {
 // Magic UI Highlighter equivalent (built on rough-notation): draw once the heading is in view.
 import { annotate } from 'https://cdn.jsdelivr.net/npm/rough-notation@0.5.1/+esm';
 var reduceMarks = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var darkMarks = matchMedia('(prefers-color-scheme: dark)').matches;
 var marks = document.querySelectorAll('[data-mark]');
 // Keep the annotation's containing block stable: without this the SVG is placed
 // against the heading while it slides in, then against the page afterwards.
@@ -407,7 +594,7 @@ function draw(el, delay) {
   var fs = parseFloat(getComputedStyle(el).fontSize);
   var a = annotate(el, {
     type: el.dataset.mark,
-    color: el.dataset.color,
+    color: (darkMarks && el.dataset.colorDark) || el.dataset.color,
     strokeWidth: underline ? Math.max(2.5, fs * 0.07) : 1.5,
     animationDuration: 600,
     animate: !reduceMarks,
@@ -473,23 +660,89 @@ marks.forEach(function (m) { mio.observe(m); });
   });
   // waitlist
   var f=document.getElementById('wf'),em=document.getElementById('em'),sb=document.getElementById('sb'),msg=document.getElementById('msg');
+  var JOIN='Join waitlist',RETRY='Try again',typoAsked='';
+  var SVG='<svg class="mi" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">';
+  var ICONS={
+    err:SVG+'<circle cx="10" cy="10" r="7.5"/><path d="M10 6v4.5M10 13.6v.01"/></svg>',
+    warn:SVG+'<path d="M10 3 2.5 16h15L10 3Z"/><path d="M10 8v3.5M10 14v.01"/></svg>',
+    ok:SVG+'<circle cx="10" cy="10" r="7.5"/><path d="m6.8 10.2 2.2 2.2 4.2-4.6"/></svg>'
+  };
+  // common slips in the domain part of an address
+  var TYPOS={'gmial.com':'gmail.com','gmal.com':'gmail.com','gamil.com':'gmail.com','gnail.com':'gmail.com','gmail.co':'gmail.com','gmail.con':'gmail.com','gmail.cm':'gmail.com','yahooo.com':'yahoo.com','yaho.com':'yahoo.com','yahoo.con':'yahoo.com','hotmial.com':'hotmail.com','hotmail.con':'hotmail.com','outlok.com':'outlook.com','outlook.con':'outlook.com','icloud.con':'icloud.com'};
+
+  // one place for every message under the form. kind: ok | warn | err
+  function say(kind,text,opts){
+    opts=opts||{};
+    msg.className='msg '+kind;msg.dataset.why=opts.why||'';
+    msg.setAttribute('role',kind==='err'?'alert':'status');
+    msg.textContent='';
+    msg.insertAdjacentHTML('afterbegin',ICONS[kind]);
+    var t=document.createElement('span');t.className='mt';t.textContent=text;
+    if(opts.fix){var b=document.createElement('button');b.type='button';b.className='mfix';b.textContent=opts.fix.label;b.addEventListener('click',opts.fix.run);t.appendChild(b)}
+    msg.appendChild(t);
+    void msg.offsetWidth;msg.classList.add('show');
+  }
+  function clearMsg(){msg.className='msg';msg.textContent='';msg.dataset.why='';em.removeAttribute('aria-invalid');em.removeAttribute('aria-describedby')}
+  function flag(){em.setAttribute('aria-invalid','true');em.setAttribute('aria-describedby','msg')}
+  function nudge(){
+    if(reduce||!f.animate)return;
+    f.animate([{transform:'translateX(0)'},{transform:'translateX(-5px)'},{transform:'translateX(5px)'},{transform:'translateX(-3px)'},{transform:'translateX(0)'}],{duration:280,easing:'cubic-bezier(.23,1,.32,1)'});
+  }
+  // every failed send puts the form back so the person can retry straight away
+  function failed(kind,text,why){sb.disabled=false;sb.textContent=RETRY;say(kind,text,{why:why})}
+
+  em.addEventListener('input',function(){
+    if(em.getAttribute('aria-invalid'))clearMsg();
+    if(!sb.disabled&&sb.textContent===RETRY)sb.textContent=JOIN;
+  });
+  addEventListener('online',function(){if(msg.dataset.why==='offline'){clearMsg();if(!sb.disabled)sb.textContent=JOIN}});
+
   function save(email){
-    var referredBy=new URLSearchParams(window.location.search).get('ref');
+    var referredBy=new URLSearchParams(location.search).get('ref');
+    var ctl=new AbortController(),timer=setTimeout(function(){ctl.abort()},12000);
     return fetch('/api/waitlist',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
+      signal:ctl.signal,
       body:JSON.stringify({name:email.split('@')[0],email:email,phone:null,referredBy:referredBy})
-    }).then(async function(res){
-      var body=await res.json().catch(function(){return {}});
-      if(!res.ok)throw new Error(body.message||'Could not join the waitlist right now.');
-      return body;
-    });
+    }).then(function(res){
+      return res.json().catch(function(){return {}}).then(function(body){return {res:res,body:body}});
+    }).finally(function(){clearTimeout(timer)});
   }
+
   f.addEventListener('submit',function(e){
-    e.preventDefault();var v=em.value.trim();msg.className='msg';
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg.className='msg err';msg.textContent='Please enter a valid email address.';em.focus();return}
+    e.preventDefault();
+    var v=em.value.trim();
+    clearMsg();
+    if(!v){flag();nudge();say('err','Add your email to join the waitlist.');em.focus();return}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){flag();nudge();say('err','That does not look like an email address yet. Check it and try again.');em.focus();return}
+    var domain=v.split('@')[1].toLowerCase();
+    if(TYPOS[domain]&&typoAsked!==v){
+      typoAsked=v;
+      var fixed=v.split('@')[0]+'@'+TYPOS[domain];
+      flag();nudge();
+      say('warn','Did you mean '+fixed+'?',{fix:{label:'Use it',run:function(){em.value=fixed;clearMsg();em.focus()}}});
+      return;
+    }
+    if(!navigator.onLine){failed('warn','You are offline. Reconnect and we will let you try again.','offline');return}
     sb.disabled=true;sb.textContent='Joining…';
-    save(v).then(function(){sb.textContent='You’re on the list ✓';em.value='';msg.textContent='Thanks! We will email you as soon as PoolIt opens.'}).catch(function(err){sb.disabled=false;sb.textContent='Join waitlist';msg.className='msg err';msg.textContent=err.message||'Could not join the waitlist right now.'});
+    save(v).then(function(r){
+      var res=r.res,body=r.body;
+      if(res.ok){
+        sb.textContent='You’re on the list ✓';em.value='';
+        if(body.already_joined){say('ok','You are already on the list. We will email you the moment PoolIt opens.')}
+        else{say('ok','Thanks! We will email you as soon as PoolIt opens.');dispatchEvent(new Event('poolit:joined'))}
+        return;
+      }
+      if(res.status===429)return failed('warn','Too many tries from this connection. Give it a minute, then try again.');
+      if(res.status===400)return failed('err',body.message||'That email was not accepted. Check it and try again.');
+      if(res.status>=500)return failed('err','Something broke on our side, so your email was not saved. Try again in a moment.');
+      failed('err',body.message||'We could not add you just now. Try again.');
+    }).catch(function(err){
+      if(err&&err.name==='AbortError')return failed('err','That took too long, so your email was not saved. Try again.');
+      if(!navigator.onLine)return failed('warn','You are offline. Reconnect and we will let you try again.','offline');
+      failed('err','We could not reach PoolIt. Check your connection and try again.');
+    });
   });
 })();
 </script>
@@ -498,13 +751,21 @@ marks.forEach(function (m) { mio.observe(m); });
 (function () {
   var canvas = document.getElementById('iconCloud');
   if (!canvas) return;
-  var ctx = canvas.getContext('2d');
+  var ctx = canvas.getContext && canvas.getContext('2d');
   var names = ['netflix','spotify','youtube','google-one','canva','prime-video','apple-music','disney-plus','youtube-music','playstation','icloud','hbo-max','deezer','audible','crunchyroll','soundcloud','dropbox','tidal','audiomack'];
+  // no canvas (very old browser, blocked context): show the logos as a plain grid instead
+  if (!ctx) {
+    var grid = document.createElement('div');
+    grid.className = 'cloud-static';
+    grid.innerHTML = names.map(function (n) { return '<img src="logos/' + n + '.svg" alt="" width="46" height="46" loading="lazy">'; }).join('');
+    canvas.parentNode.replaceChild(grid, canvas);
+    return;
+  }
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var paused = reduce, visible = false, dragging = false, raf = 0;
   var rot = { x: 0.35, y: 0 }, target = null, last = null, mouse = null;
   var size = 0, dpr = 1, R = 0, B = 0;
-  var badges = [];
+  var badges = [], failed = {};
 
   // points on a sphere (unit radius)
   var pts = names.map(function (_, i) {
@@ -514,19 +775,24 @@ marks.forEach(function (m) { mio.observe(m); });
   });
 
   // each logo drawn once onto a white badge
-  function makeBadge(img) {
+  function makeBadge(img, letter) {
     var px = Math.round(B * dpr), c = document.createElement('canvas');
     c.width = c.height = px + 4;
     var g = c.getContext('2d'), m = (px + 4) / 2;
     g.beginPath(); g.arc(m, m, px / 2 - 1, 0, Math.PI * 2);
     g.fillStyle = '#fff'; g.fill();
     g.lineWidth = Math.max(1, dpr); g.strokeStyle = '#E6ECE8'; g.stroke();
-    var s = px * 0.56; g.drawImage(img, m - s / 2, m - s / 2, s, s);
+    if (img) { var s = px * 0.56; g.drawImage(img, m - s / 2, m - s / 2, s, s); }
+    else { // logo file failed to load: a neutral initial keeps the sphere whole
+      g.fillStyle = '#5B6B63'; g.textAlign = 'center'; g.textBaseline = 'middle';
+      g.font = '600 ' + Math.round(px * 0.4) + 'px sans-serif'; g.fillText(letter, m, m + px * 0.02);
+    }
     return c;
   }
   var imgs = names.map(function (n) {
     var img = new Image();
     img.onload = function () { if (B) badges[names.indexOf(n)] = makeBadge(img); draw(); };
+    img.onerror = function () { failed[n] = true; if (B) badges[names.indexOf(n)] = makeBadge(null, n.charAt(0).toUpperCase()); draw(); };
     img.src = 'logos/' + n + '.svg';
     return img;
   });
@@ -535,7 +801,10 @@ marks.forEach(function (m) { mio.observe(m); });
     size = canvas.clientWidth; dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = canvas.height = Math.round(size * dpr);
     R = size * 0.34; B = size * 0.16;
-    badges = imgs.map(function (img) { return img.complete && img.naturalWidth ? makeBadge(img) : null; });
+    badges = imgs.map(function (img, i) {
+      if (img.complete && img.naturalWidth) return makeBadge(img);
+      return failed[names[i]] ? makeBadge(null, names[i].charAt(0).toUpperCase()) : null;
+    });
     draw();
   }
 
@@ -614,12 +883,6 @@ marks.forEach(function (m) { mio.observe(m); });
   });
   canvas.addEventListener('pointerup', function () { dragging = false; last = null; });
 
-  var btn = document.getElementById('cloudToggle');
-  var pauseIcon = btn.innerHTML;
-  var playIcon = '<svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M4.5 2.8v10.4a.8.8 0 0 0 1.2.7l8.4-5.2a.8.8 0 0 0 0-1.4L5.7 2.1a.8.8 0 0 0-1.2.7Z"/></svg>';
-  function syncBtn() { btn.innerHTML = paused ? playIcon : pauseIcon; btn.setAttribute('aria-label', paused ? 'Play animation' : 'Pause animation'); }
-  btn.addEventListener('click', function () { paused = !paused; syncBtn(); start(); });
-  syncBtn();
 
   new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) start(); }).observe(canvas);
   if ('ResizeObserver' in window) new ResizeObserver(resize).observe(canvas); else addEventListener('resize', resize);
@@ -646,6 +909,112 @@ marks.forEach(function (m) { mio.observe(m); });
       '" style="--t:' + (6 + rnd() * 6).toFixed(1) + 's;--dl:-' + (rnd() * 10).toFixed(1) + 's" d="' + d + '"/>';
   }
   svg.innerHTML = out;
+})();
+</script>
+<script>
+// Top bar: frosted glass after a few px of scroll, plus a progress hairline.
+(function(){
+  var nav=document.querySelector('nav'),bar=document.getElementById('navProgress'),queued=false;
+  if(!nav||!bar)return;
+  function update(){
+    queued=false;
+    var y=window.scrollY||0,max=document.documentElement.scrollHeight-window.innerHeight;
+    nav.classList.toggle('scrolled',y>12);
+    bar.style.transform='scaleX('+(max>0?Math.min(1,Math.max(0,y/max)):0).toFixed(4)+')';
+  }
+  addEventListener('scroll',function(){if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});
+  addEventListener('resize',update);
+  update();
+})();
+</script>
+<script type="module">
+// Live waitlist count: the real number from /api/count, rolled with NumberFlow.
+// If the API is down the row simply stays hidden; a made-up number is never shown.
+const proof = document.getElementById('proof');
+if (proof) {
+  const avs = document.getElementById('proofAvs'), text = document.getElementById('proofText');
+  let flow = false;
+  try { await import('https://cdn.jsdelivr.net/npm/number-flow@0.6.2/+esm'); flow = true; } catch {}
+  const LETTERS = ['J', 'H', 'A', 'T', 'K'], TINTS = ['', '#FFE7B0', '#E4E9FF', '#CDEBDC', '#FFDCD6'];
+  const compact = (n) => n >= 1e6 ? (Math.floor(n / 1e5) / 10) + 'm' : n >= 1000 ? (Math.floor(n / 100) / 10) + 'k' : String(n);
+  let current = null, flowEl = null, kind = -1, inView = false, lastLoad = 0;
+
+  function avatars(n) {
+    avs.textContent = '';
+    for (let i = 0; i < Math.min(n, 5); i++) {
+      const s = document.createElement('span');
+      s.textContent = LETTERS[i];
+      if (TINTS[i]) s.style.setProperty('--av', TINTS[i]);
+      avs.appendChild(s);
+    }
+    if (n > 5) { const s = document.createElement('span'); s.className = 'more'; s.textContent = '+' + compact(n - 5); avs.appendChild(s); }
+  }
+  function apply(n) {
+    current = n;
+    proof.classList.remove('none');
+    avatars(n);
+    const k = n === 0 ? 0 : n === 1 ? 1 : 2;
+    if (k !== kind) { // the sentence changes shape only at 0, 1 and 2+
+      kind = k; flowEl = null; text.textContent = '';
+      if (k === 0) text.textContent = 'Be one of the first to join';
+      else if (k === 1) text.textContent = '1 person has joined';
+      else {
+        const strong = document.createElement('strong');
+        if (flow) {
+          const nf = document.createElement('number-flow');
+          nf.locales = 'en-NG'; nf.format = { maximumFractionDigits: 0 };
+          nf.update(inView ? n : 0);
+          strong.appendChild(nf); flowEl = nf;
+        } else strong.textContent = n.toLocaleString('en-NG');
+        text.append(strong, ' people already joined');
+      }
+    } else if (k === 2) {
+      if (flowEl) { if (inView) flowEl.update(n); }
+      else text.querySelector('strong').textContent = n.toLocaleString('en-NG');
+    }
+    proof.classList.add('ready');
+  }
+  async function load() {
+    lastLoad = Date.now();
+    try {
+      const r = await fetch('/api/count', { headers: { accept: 'application/json' } });
+      if (!r.ok) throw new Error(String(r.status));
+      const j = await r.json();
+      if (!Number.isFinite(j.count) || j.count < 0) throw new Error('bad count');
+      apply(Math.floor(j.count));
+    } catch {
+      if (current === null) proof.classList.add('none'); // nothing real to show: hide the row
+    }
+  }
+  new IntersectionObserver((es, io) => {
+    if (!es[0].isIntersecting) return;
+    inView = true; io.disconnect();
+    if (flowEl && current !== null) flowEl.update(current); // first reveal rolls up from 0
+  }, { threshold: 0.6 }).observe(proof);
+  setInterval(() => { if (!document.hidden) load(); }, 45000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && Date.now() - lastLoad > 15000) load(); });
+  addEventListener('poolit:joined', () => setTimeout(load, 400)); // your own signup shows up in the number
+  load();
+}
+</script>
+<script>
+// Hero: "Split" breaks apart as you start to scroll and closes again on the way back up.
+// Writes the offsets as custom properties on the word itself (two pseudo-elements read them).
+(function(){
+  var w=document.querySelector('.split');
+  if(!w||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var F=60,queued=false,RANGE=90;
+  function measure(){F=parseFloat(getComputedStyle(w).fontSize)||60}
+  function update(){
+    queued=false;
+    var p=Math.min(1,Math.max(0,(window.scrollY||0)/RANGE)),e=1-Math.pow(1-p,3);
+    w.style.setProperty('--sx',(e*F*.07).toFixed(2));
+    w.style.setProperty('--sy',(e*F*.13).toFixed(2));
+    w.style.setProperty('--sr',(e*2).toFixed(2));
+  }
+  addEventListener('scroll',function(){if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});
+  addEventListener('resize',function(){measure();update()});
+  measure();update();
 })();
 </script>
 </body>

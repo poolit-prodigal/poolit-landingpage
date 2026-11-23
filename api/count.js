@@ -29,7 +29,7 @@ export default async function handler(req, res) {
   try {
     const supabase = getSupabase();
     if (!supabase) {
-      return res.status(200).json({ count: 0 });
+      return res.status(503).json({ count: null, message: 'Waitlist count is unavailable.' });
     }
 
     const { count, error } = await supabase
@@ -38,12 +38,14 @@ export default async function handler(req, res) {
 
     if (error) {
       console.error('Count query failed:', error.message);
-      return res.status(200).json({ count: 0 });
+      return res.status(503).json({ count: null, message: 'Waitlist count is unavailable.' });
     }
 
+    // the page polls this: let the edge answer most requests for 30s instead of hitting the database
+    res.setHeader('Cache-Control', 'public, s-maxage=30, stale-while-revalidate=120');
     return res.status(200).json({ count: count || 0 });
   } catch (error) {
     console.error('Unexpected count error:', error);
-    return res.status(200).json({ count: 0 });
+    return res.status(503).json({ count: null, message: 'Waitlist count is unavailable.' });
   }
 }

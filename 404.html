@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found — PoolIt</title>
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0D6B4E" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0D0E" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff;--ink:#0E1A15;--muted:#5B6B63;--line:#E6ECE8;--green:#0D6B4E;--deep:#00533B;
+  --ease-out:cubic-bezier(.23,1,.32,1);color-scheme:light dark;
+  --head:'Bricolage Grotesque','DM Sans',system-ui,sans-serif;--body:'DM Sans',system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100svh;display:grid;place-items:center;padding:32px 24px;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--body);text-align:center;-webkit-tap-highlight-color:transparent}
+main{max-width:460px}
+.mark{display:block;width:96px;height:96px;margin:0 auto 28px;overflow:visible;color:#000;fill:currentColor}
+.mark .bar{transform-origin:444.69px 449.69px;transform:rotate(-24deg)}
+.mark .floats{transform-origin:444.69px 449.69px;transform:rotate(-24deg)}
+.code{margin:0 0 6px;font:600 14px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+h1{margin:0;font:700 clamp(36px,8vw,52px)/1.05 var(--head);letter-spacing:-.03em}
+p{margin:16px 0 0;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:48px;margin-top:30px;padding:0 24px;border-radius:999px;background:var(--green);color:#fff;font:600 16px var(--body);text-decoration:none;transition:transform 160ms var(--ease-out),background-color 160ms ease}
+.btn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--deep)}}
+.btn:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0C0D0E;--ink:#F2F3F4;--muted:#9BA1A6;--line:#26292C;--green:#128462;--deep:#0A5C42}
+  .code{color:#3FCF98}
+  .mark{color:#DEDEDE}
+}
+@media (prefers-reduced-motion:no-preference){
+  .mark .bar,.mark .floats{animation:settle 900ms var(--ease-out) 200ms both}
+  @keyframes settle{from{transform:rotate(-24deg)}to{transform:rotate(0)}}
+}
+</style>
+</head>
+<body>
+<main>
+  <!-- the PoolIt mark, knocked off its axis; it settles once the page loads -->
+  <svg class="mark" viewBox="0 0 900 900" aria-hidden="true">
+    <line class="bar" x1="78" y1="78" x2="821.31" y2="821.31" stroke="currentColor" stroke-width="156" stroke-linecap="round"/>
+    <g class="floats"><circle cx="194.69" cy="699.69" r="100"/><circle cx="694.69" cy="199.69" r="100"/></g>
+    <circle cx="444.69" cy="449.69" r="250"/>
+  </svg>
+  <p class="code">Error 404</p>
+  <h1>This page split off.</h1>
+  <p>The link you followed does not lead anywhere on PoolIt. It may have moved, or the address may have a typo.</p>
+  <a class="btn" href="/">Back to PoolIt</a>
+</main>
+</body>
+</html>

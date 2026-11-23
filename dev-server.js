@@ -66,8 +66,11 @@ function readJsonBody(req) {
   });
 }
 
+// same rewrites as vercel.json, so local preview behaves like production
+const REWRITES = { '/': '/index.html', '/privacy': '/privacy.html', '/privacy/': '/privacy.html' };
+
 async function serveStatic(pathname, res) {
-  const safePath = pathname === '/' ? '/index.html' : pathname;
+  const safePath = REWRITES[pathname] || pathname;
   const normalized = path.normalize(safePath).replace(/^\.\.(\/|\\|$)/, '/');
   const filePath = path.join(__dirname, normalized);
 
@@ -78,14 +81,13 @@ async function serveStatic(pathname, res) {
     res.setHeader('Content-Type', MIME_TYPES[ext] || 'application/octet-stream');
     res.end(data);
   } catch {
-    const fallback = path.join(__dirname, 'index.html');
+    // unknown path: answer 404 with the branded page, as Vercel does
+    res.statusCode = 404;
     try {
-      const html = await fs.readFile(fallback);
-      res.statusCode = 200;
+      const html = await fs.readFile(path.join(__dirname, '404.html'));
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
       res.end(html);
     } catch {
-      res.statusCode = 404;
       res.end('Not found');
     }
   }
