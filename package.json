@@ -9,6 +9,7 @@
     "db:setup": "node --env-file=.env scripts/setup-db.js",
     "build": "node -e \"console.log('No build step required for static files.')\"",
     "preview": "npm run dev"
+    "email:preview": "node scripts/preview-email.js",
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.51.0",
