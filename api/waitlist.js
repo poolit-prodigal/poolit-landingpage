@@ -14,6 +14,7 @@ CREATE TABLE waitlist (
 import crypto from 'node:crypto';
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
+import { renderWelcomeEmail } from './_lib/welcome-email.js';
 
 function getSupabase() {
   const url = process.env.SUPABASE_URL;
@@ -40,16 +41,6 @@ function setCors(res) {
 
 function isEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
-
-function escapeHtml(value) {
-  return value.replace(/[&<>"']/g, (character) => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  })[character]);
 }
 
 function generateRefCode() {
@@ -129,67 +120,20 @@ export default async function handler(req, res) {
     try {
       const resend = getResend();
       if (resend) {
-        const firstName = escapeHtml(safeName.split(/\s+/)[0]);
+        const { subject, text, html } = renderWelcomeEmail({
+          name: safeName,
+          email: safeEmail,
+          referralUrl
+        });
         const emailResult = await resend.emails.send({
           from: 'PoolIt <hello@poolit.site>',
           to: [safeEmail],
-          subject: "You're on the PoolIt list",
-          text: `Hi ${safeName.split(/\s+/)[0]},
-
-You're on the PoolIt waitlist. We'll email you when PoolIt is ready in your neighbourhood—so you can split the bill and keep the stream.
-
-Know someone you'd share a subscription with? Send them your invite link. Their signup will be connected to yours:
-${referralUrl}
-
-Questions? Reply to this email or write to hello@poolit.site.
-
-PoolIt
-Split the bill. Keep the stream.
-poolit.site`,
-          html: `
-            <div style="margin:0;padding:32px 12px;background:#F3F6F2;font-family:Arial,Helvetica,sans-serif;color:#0E1A15;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:560px;margin:0 auto;">
-                <tr>
-                  <td style="padding:0 0 14px 2px;font-size:13px;font-weight:700;letter-spacing:2px;color:#0D6B4E;">POOLIT<span style="color:#F0A500;">.</span></td>
-                </tr>
-                <tr>
-                  <td style="background:#FFFFFF;border:1px solid #E6ECE8;border-radius:8px;overflow:hidden;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-                      <tr><td height="6" style="height:6px;background:#0D6B4E;font-size:0;line-height:0;">&nbsp;</td></tr>
-                      <tr>
-                        <td style="padding:34px 34px 12px;">
-                          <p style="margin:0 0 12px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#5B6B63;">Your waitlist note</p>
-                          <h1 style="margin:0;font-size:32px;line-height:1.15;letter-spacing:-1px;color:#0E1A15;">You're on the list<span style="color:#F0A500;">.</span></h1>
-                          <p style="margin:22px 0 0;font-size:16px;line-height:1.65;color:#26362F;">Hi ${firstName},</p>
-                          <p style="margin:10px 0 0;font-size:16px;line-height:1.65;color:#26362F;">You're on the PoolIt waitlist. We'll email you when PoolIt is ready in your neighbourhood—so you can split the bill and keep the stream.</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding:18px 34px 30px;">
-                          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F3F6F2;border:1px solid #E6ECE8;border-radius:6px;">
-                            <tr><td style="padding:18px 18px 8px;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#0D6B4E;">Pass the invite along</td></tr>
-                            <tr><td style="padding:0 18px 14px;font-size:14px;line-height:1.55;color:#405148;">Know someone you'd share a subscription with? Send them this link. Their signup will be connected to yours.</td></tr>
-                            <tr><td style="padding:0 18px 18px;">
-                              <a href="${referralUrl}" style="display:inline-block;padding:11px 16px;background:#0D6B4E;border-radius:4px;color:#FFFFFF;text-decoration:none;font-size:14px;font-weight:700;">Share your invite</a>
-                            </td></tr>
-                            <tr><td style="padding:0 18px 18px;font-size:12px;line-height:1.5;word-break:break-all;color:#5B6B63;">${referralUrl}</td></tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:18px 2px 0;font-size:13px;line-height:1.6;color:#5B6B63;">Questions? Reply to this email or write to <a href="mailto:hello@poolit.site" style="color:#0D6B4E;text-decoration:underline;">hello@poolit.site</a>.</td>
-                </tr>
-                <tr>
-                  <td style="padding:12px 2px 0;font-size:12px;line-height:1.5;color:#718078;">PoolIt · Split the bill. Keep the stream.</td>
-                </tr>
-              </table>
-            </div>
-          `
+          subject,
+          text,
+          html
         });
-        if (!emailResult.success) {
+        // the Resend SDK answers { data, error }; it has no "success" field
+        if (emailResult.error) {
           console.warn('Resend email not sent:', emailResult.error);
         }
       }

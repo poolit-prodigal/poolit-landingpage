@@ -1,7 +1,7 @@
 {
   "name": "PoolIt — Split the bill. Keep the stream.",
   "short_name": "PoolIt",
-  "description": "Share subscription costs with your neighbours.",
+  "description": "Share subscription costs with friends and family.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
