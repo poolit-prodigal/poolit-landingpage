@@ -25,7 +25,7 @@ function escapeHtml(value) {
 
 // The three points the site makes in its hero, in the same words.
 const STEPS = [
-  ['Pool with your neighbours', 'Start or join a group for plans that come with spare seats.'],
+  ['Pool with friends and family', 'Start or join a group for plans that come with spare seats.'],
   ['Automatic monthly shares', 'Link a card once. No chasing anyone for transfers.'],
   ['Clear billing, built-in chat', 'See who has joined, the next billing date, and talk to the group.']
 ];
@@ -39,7 +39,7 @@ export function renderWelcomeEmail({ name, email, referralUrl, assetBase = proce
 
   const text = `Hi ${first},
 
-You're on the PoolIt waitlist. We'll email you the moment PoolIt is ready in your neighbourhood, so you and your friends can Pool it.
+You're on the PoolIt waitlist. We'll email you the moment PoolIt is ready for you, so you and your friends can Pool it.
 
 WHAT HAPPENS NEXT
 ${STEPS.map(([title, body], i) => `${i + 1}. ${title}. ${body}`).join('\n')}
@@ -142,7 +142,7 @@ ${email ? `\nYou're getting this because ${email} joined the PoolIt waitlist.` :
                 <td class="px" style="padding:36px 40px 8px;">
                   <h1 class="h1 t-ink" style="margin:0;font-family:'Bricolage Grotesque','DM Sans',Helvetica,Arial,sans-serif;font-size:42px;font-weight:700;line-height:1.08;letter-spacing:-1.4px;color:#0E1A15;">You're on the waitlist<span style="color:#F0A500;">.</span></h1>
                   <p class="t-body" style="margin:22px 0 0;font-family:'DM Sans',Helvetica,Arial,sans-serif;font-size:17px;line-height:1.65;color:#26362F;">Hi ${firstHtml},</p>
-                  <p class="t-body" style="margin:10px 0 0;font-family:'DM Sans',Helvetica,Arial,sans-serif;font-size:17px;line-height:1.65;color:#26362F;">You're on the PoolIt waitlist. We'll email you the moment PoolIt is ready in your neighbourhood, so you and your friends can Pool it.</p>
+                  <p class="t-body" style="margin:10px 0 0;font-family:'DM Sans',Helvetica,Arial,sans-serif;font-size:17px;line-height:1.65;color:#26362F;">You're on the PoolIt waitlist. We'll email you the moment PoolIt is ready for you, so you and your friends can Pool it.</p>
                 </td>
               </tr>
 
