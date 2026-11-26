@@ -159,7 +159,7 @@ ${email ? `\nYou're getting this because ${email} joined the PoolIt waitlist.` :
               <tr>
                 <td bgcolor="#E3F2EA" style="background:#E3F2EA;padding:30px 0 0;">
                   <h2 class="px" style="margin:0 0 4px;padding:0 40px;font-family:'Bricolage Grotesque','DM Sans',Helvetica,Arial,sans-serif;font-size:24px;font-weight:700;line-height:1.15;letter-spacing:-0.6px;color:#0E1A15;text-align:center;">A first look at the app</h2>
-                  <img class="fluid" src="${img('welcome-phones.jpg')}" width="600" height="380" alt="Three PoolIt app screens: your groups, a group's members and billing, and creating a new Netflix group" style="display:block;width:100%;max-width:600px;height:auto;border:0;">
+                  <img class="fluid" src="${img('welcome-phones.jpg')}" width="600" height="380" alt="Three PoolIt app screens: your groups and savings, the home screen, and a Netflix group with its seats and billing" style="display:block;width:100%;max-width:600px;height:auto;border:0;">
                 </td>
               </tr>
 
